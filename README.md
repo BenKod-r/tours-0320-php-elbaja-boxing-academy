@@ -2,8 +2,6 @@
 
 ![Wild Code School](https://wildcodeschool.fr/wp-content/uploads/2019/01/logo_pink_176x60.png)
 
-This starter kit is here to easily start a repository for your students.
-
 It's symfony website-skeleton project with some additional tools to validate code standards.
 
 * GrumPHP, as pre-commit hook, will run 2 tools when `git commit` is run :
@@ -19,48 +17,7 @@ It's symfony website-skeleton project with some additional tools to validate cod
     * PHP_CodeSniffer to check PSR2,
     * PHPStan will check PHP recommendation.
  
-
-## Getting Started for trainers
-
-Before your students can code, you have some work to do !
-
-### Prerequisites
-
-Create a repository on Github in WildCodeSchool organization following this exemple :
-**ville-session-language-project** as **bordeaux-0219-php-servyy**
-
-### Get starter kit
-
-1. Clone this project
-2. Remove `.git` folder to remove history
-3. `git init`
-4. Link to your project repository you'll give to your students : `git remote add origin ...`
-5. Edit `.travis.yml` file to change default e-mails settings to get notification checking tasks end
-6. Remove trainers instructions
-5. `git add .`
-6. `git commit -m "Init project repository"`
-7. `git push -u origin master`
-
-### Check on Travis
-
-1. Go on [https://travis-ci.com](https://travis-ci.com).
-2. Sign up if you don't have account,
-3. Look for your project in search bar on the left,
-4. As soon as your repository have a `.travis.yml` in root folder, Travis should detect it and run test.
-
-> You can watch this screenshot to see basic configuration : ![basic config](http://images.innoveduc.fr/symfony4/travis-config.png)
-
-
-
-### Configure you repository - Settings options
-
-1. Add your students team as contributor .
-2. Disallow both on 'dev' and 'master' branches your students writing credentials. 
-3. Disallow merge available while one approbation is not submitted on PR.
-
-> You can watch this very tiny short video : (Loom : verrouillage branches GitHub)[https://www.loom.com/share/ad0c641d0b9447be9e40fa38a499953b]
-
-## Getting Started for Projects
+## Getting Started
 
 ### Prerequisites
 
