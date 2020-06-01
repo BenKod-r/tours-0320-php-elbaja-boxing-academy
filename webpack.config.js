@@ -1,4 +1,5 @@
 var Encore = require('@symfony/webpack-encore');
+var CopyWebpackPlugin = require('copy-webpack-plugin'); // this line tell to webpack to use the plugin
 
 Encore
     // directory where compiled assets will be stored
@@ -63,6 +64,8 @@ Encore
     // uncomment if you use API Platform Admin (composer req api-admin)
     //.enableReactPreset()
     //.addEntry('admin', './assets/js/admin.js')
+
+    .addEntry('logo', './assets/images/logoEBA.jpg')
 ;
 
 module.exports = Encore.getWebpackConfig();
