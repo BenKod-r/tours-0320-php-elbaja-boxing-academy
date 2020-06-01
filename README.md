@@ -29,6 +29,7 @@ It's symfony website-skeleton project with some additional tools to validate cod
 1. Clone this project
 2. Run `composer install`
 3. Run `yarn install`
+4. Run `yarn add font-awesome --dev`
 
 ### Working
 

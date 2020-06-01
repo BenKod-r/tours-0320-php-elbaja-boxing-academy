@@ -1,3 +1,16 @@
-$primary-color: #f76c6c;
-$secondary-color: #f99797;
-$warm-color: #ffd64f;
+//VERT LOGO CLIENT
+$primary-color: #18f20b;
+
+//NOIR LOGO CLIENT
+$secondary-color : #000000;
+
+//POLICE
+@font-face {
+    font-family:"Boxing";
+    src: url('../fonts/BOXING.otf') format('opentype');
+}
+
+@font-face {
+    font-family:"Graduate";
+    src: url('../fonts/Graduate-Regular.ttf') format('truetype');
+}
