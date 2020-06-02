@@ -65,7 +65,8 @@ Encore
     //.enableReactPreset()
     //.addEntry('admin', './assets/js/admin.js')
 
-    .addEntry('logo', './assets/images/logoEBA.jpg')
+    .copyFiles({
+        from: './assets/images',})
 ;
 
 module.exports = Encore.getWebpackConfig();

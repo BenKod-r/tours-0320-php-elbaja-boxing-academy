@@ -38,13 +38,13 @@ main {
     }
 }
 
-/* Couleur de fond de la barre de navigation */
+/* NAVBAR BACKGROUND COLOR */
 .navbar,.dropdown-menu>li>a,
 .dropdown-menu {
     background-color: $secondary-color;
 }
 
-/* Couleur utilisée pour les liens lorsque la souris passe dessus */
+/* NAVBAR COLOR LINK */
 .navbar-nav > li > a:hover,
 .navbar-nav > li > a:focus,
 .navbar-brand > li > a:hover,
