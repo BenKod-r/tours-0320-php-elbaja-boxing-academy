@@ -40,7 +40,7 @@ class Member
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $address;
+    private $adress;
 
     /**
      * @ORM\Column(type="integer")
@@ -110,14 +110,14 @@ class Member
         return $this;
     }
 
-    public function getAddress(): ?string
+    public function getAdress(): ?string
     {
-        return $this->address;
+        return $this->adress;
     }
 
-    public function setAddress(string $address): self
+    public function setAdress(string $adress): self
     {
-        $this->address = $address;
+        $this->adress = $adress;
 
         return $this;
     }
