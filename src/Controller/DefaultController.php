@@ -9,7 +9,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends AbstractController
 {
     /**
+     * Home page display
      * @Route("/",name="app_index")
+     * @return Response A response instance
      */
     public function index() :Response
     {
