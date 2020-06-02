@@ -1,9 +1,8 @@
 @import "vars";
+@import "~bootstrap/scss/bootstrap";
+@import '~font-awesome';
+@import "navbarfooter.scss";
+@import "home.scss";
 
-body {
-    background-color: $secondary-color;
-}
 
-a {
-    color: $warm-color;
-}
+
