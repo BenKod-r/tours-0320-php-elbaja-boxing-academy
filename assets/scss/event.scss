@@ -1,0 +1,14 @@
+body {
+    background: $secondary-color;
+    padding-bottom: 70px;
+    font-family:"Graduate";
+    padding : 2em;
+}
+
+h1, th, td, form {
+    color: $primary-color;
+}
+
+.btn {
+    color: blue;
+}
