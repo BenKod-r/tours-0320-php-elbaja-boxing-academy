@@ -70,6 +70,10 @@
     font-family:"Graduate";
     padding : 2em;
 
+    h1 {
+    color : $primary-color;
+
+    }
     .single-trainer {
         padding: 10px;
   }
@@ -143,12 +147,12 @@
       Join Us
 -----------------------*/
 .callto-area {
-    background: url(../images/home_join_us.jpg) center;
+    background: url(../images/home/home_join_us.jpg) center;
     background-size: cover;
+    background-repeat: no-repeat;
     text-align: center;
     font-family:"Graduate";
     margin : 2em;
-    padding : 2em;
 }
 
 .callto-area .call-wrap {
@@ -176,5 +180,5 @@
 }
 
 .button {
-    padding : 3em;
+    padding-bottom : 3em;
 }

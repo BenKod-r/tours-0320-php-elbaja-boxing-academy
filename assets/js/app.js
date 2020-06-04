@@ -23,3 +23,5 @@ require('bootstrap');
 // require('bootstrap/js/dist/popover');
 
 $(document).ready(() => ('[data-toggle="popover"]').popover());
+
+
