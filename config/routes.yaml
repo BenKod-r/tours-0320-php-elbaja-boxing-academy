@@ -1,6 +1,6 @@
 # config/routes.yaml
 
 index:
-  path: /
+  path: /home/
   controller: App\Controller\HomeController::index
 
