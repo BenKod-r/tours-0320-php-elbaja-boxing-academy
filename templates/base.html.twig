@@ -9,15 +9,15 @@
 
 </head>
 <body>
-{% block header %}
-    {% include "navbar.html.twig" %}
-{% endblock %}
-{% block body %}{% endblock %}
-{% block footer %}
-    {% include "footer.html.twig" %}
-{% endblock %}
-{% block javascripts %}
-    {{ encore_entry_script_tags('app') }}
-{% endblock %}
+    {% block header %}
+        {% include "navbar.html.twig" %}
+    {% endblock %}
+    {% block body %}{% endblock %}
+    {% block footer %}
+        {% include "footer.html.twig" %}
+    {% endblock %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
 </body>
 </html>
