@@ -5,10 +5,14 @@ body {
     padding : 2em;
 }
 
-h1, th, td, form {
+.title_event, th, td, form {
     color: $primary-color;
 }
 
 .btn {
     color: blue;
+}
+
+.poster_event {
+    width: 100%;
 }

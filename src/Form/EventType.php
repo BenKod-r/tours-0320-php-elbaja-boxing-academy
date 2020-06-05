@@ -6,17 +6,19 @@ use App\Entity\Event;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class EventType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('description')
-            ->add('dateStart')
-            ->add('dateEnd')
-            ->add('poster')
+            ->add('name', TextType::class)
+            ->add('description', TextType::class)
+            ->add('dateStart', DateType::class)
+            ->add('dateEnd', DateType::class)
+            ->add('poster', TextType::class)
         ;
     }
 
