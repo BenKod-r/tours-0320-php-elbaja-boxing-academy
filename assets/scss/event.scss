@@ -1,0 +1,18 @@
+body {
+    background: $secondary-color;
+    padding-bottom: 70px;
+    font-family:"Graduate";
+    padding : 2em;
+}
+
+.title_event, th, td, form {
+    color: $primary-color;
+}
+
+.btn {
+    color: blue;
+}
+
+.poster_event {
+    width: 100%;
+}
