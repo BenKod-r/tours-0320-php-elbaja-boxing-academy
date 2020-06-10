@@ -25,6 +25,6 @@ class HomeController extends AbstractController
      */
     public function prince() :Response
     {
-        return $this->render('prince.html.twig');
+        return $this->render('home/prince.html.twig');
     }
 }
