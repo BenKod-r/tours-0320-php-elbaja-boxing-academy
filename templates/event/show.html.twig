@@ -3,7 +3,7 @@
 {% block title %}Event{% endblock %}
 
 {% block body %}
-    <h1 class="title_event">Event</h1>
+    <h1>Event</h1>
 
     <table class="table">
         <tbody>
@@ -29,7 +29,7 @@
             </tr>
             <tr>
                 <th>Poster</th>
-                <td>{{ event.poster }}</td>
+                <td><img src="{{ asset (event.poster) }}" /></td>
             </tr>
         </tbody>
     </table>

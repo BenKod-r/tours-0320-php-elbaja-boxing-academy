@@ -3,41 +3,33 @@
 {% block title %}Event index{% endblock %}
 
 {% block body %}
-    <h1 class="title_event">Event index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Poster</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>DateStart</th>
-                <th>DateEnd</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    
+    <div class="event_page">
+        <h1 class="event_title">ÉVÈNEMENTS</h1>
+    </div>
+    <div class="">
         {% for event in events %}
-            <tr>
-                <td>{{ event.id }}</td>
-                <td><img class="poster_event" src="{{ asset( event.poster ) }}" alt="poster_event"/></td>
-                <td>{{ event.name }}</td>
-                <td>{{ event.description }}</td>
-                <td>{{ event.dateStart ? event.dateStart|date('d/m/Y') : '' }}</td>
-                <td>{{ event.dateEnd ? event.dateEnd|date('d/m/Y') : '' }}</td>
-                <td>
-                    <a href="{{ path('event_show', {'id': event.id}) }}">show</a>
-                    <a href="{{ path('event_edit', {'id': event.id}) }}">edit</a>
-                </td>
-            </tr>
+        <h2 class="event_name offset-4">{{ event.name }}</h2>
+        <div class="event d-flex">
+            <img class="event_poster col-lg-3" src="{{ asset( event.poster ) }}" alt="poster_event" />
+            <div class="offset-1">
+                <p>{{ event.description }}</p>
+                <p>{{ event.dateStart ? event.dateStart|date('d/m/Y') : '' }}</p>
+                <p>{{ event.dateEnd ? event.dateEnd|date('d/m/Y') : '' }}</p>
+            </div>
+        </div>
+    </div>
+    <a href="{{ path('event_show', {'id': event.id}) }}">show</a>
+    <a href="{{ path('event_edit', {'id': event.id}) }}">edit</a>
         {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
+            <p colspan="7">no records found</p>
         {% endfor %}
-        </tbody>
-    </table>
+    <div class="event_link">
+        <a href="{{ path('event_new') }}">Create new</a>
+    </div>
 
-    <a href="{{ path('event_new') }}">Create new</a>
+{% endblock %}
+
+{% block javascripts %}
+
 {% endblock %}

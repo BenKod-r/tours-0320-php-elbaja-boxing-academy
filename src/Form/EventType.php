@@ -16,8 +16,8 @@ class EventType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('description', TextType::class)
-            ->add('dateStart', DateType::class)
-            ->add('dateEnd', DateType::class)
+            ->add('dateStart', DateType::class, [ 'widget' => 'single_text' ])
+            ->add('dateEnd', DateType::class, [ 'widget' => 'single_text' ])
             ->add('poster', TextType::class)
         ;
     }

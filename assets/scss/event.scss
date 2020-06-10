@@ -1,18 +1,50 @@
 body {
-    background: $secondary-color;
-    padding-bottom: 70px;
     font-family:"Graduate";
-    padding : 2em;
+    background-image: url("../images/backgroundEBA.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
 }
 
-.title_event, th, td, form {
+.event_page {
+    background-color: black;
+}
+
+.event_title {
     color: $primary-color;
 }
 
-.btn {
-    color: blue;
+.event_name {
+    text-align: inherit;
 }
 
-.poster_event {
+.event {
+    padding-top: 70px;
+    margin-left: 20px;
+    margin-right: 100px;
+}
+
+.event, form {
+    color: whitesmoke;
+}
+
+a, .btn {
+    color: yellow;
+}
+
+.event_link {
+    padding-bottom: 100px;
+}
+
+.event_poster {
+    transition: transform .2s; /* Animation */
     width: 100%;
+    margin: 0 auto;
+  }
+  
+.event_poster:hover {
+    margin-left: 70px;
+    margin-bottom: 150px;
+    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
