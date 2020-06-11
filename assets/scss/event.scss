@@ -1,5 +1,5 @@
 .event {
-    font-family:"Graduate";
+    font-family: "Graduate";
     background-image: url("../images/backgroundEBA.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -69,14 +69,14 @@
     padding-right: 50px;
 }
 
-.event_card_image .edit {
+.edit {
     position: absolute;
     left: 5%;
     cursor: pointer;
     border-radius: 5px;
 }
 
-.event_card_image .show {
+.show {
     position: absolute;
     right: 5%;
     cursor: pointer;
@@ -84,7 +84,7 @@
 }
 
 @media only screen and (min-width: 1140px) {
-    .event_card_image .edit {
+    .edit {
         margin-left: 40px;
         position: absolute;
         left: 5%;
@@ -92,7 +92,7 @@
         border-radius: 5px;
     }
     
-    .event_card_image .show {
+    .show {
         margin-right: 40px;
         position: absolute;
         right: 5%;
