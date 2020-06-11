@@ -1,51 +1,104 @@
-body {
+.event {
     font-family:"Graduate";
     background-image: url("../images/backgroundEBA.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
+    padding-bottom: 150px;
 }
 
 .event_page {
     background-color: black;
 }
-/*
-.event_title {
+
+.event_page_title {
     color: $primary-color;
 }
 
-.event_name {
-    text-align: inherit;
+.card-deck {
+    padding-top: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
-.event {
-    padding-top: 70px;
-    margin-left: 20px;
-    margin-right: 100px;
+@media only screen and (min-width: 1140px) {
+    .card-deck {
+        padding-top: 125px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
 }
 
-.event, form {
-    color: whitesmoke;
+.card {
+    max-width: 100%;
 }
 
-a, .btn {
-    color: yellow;
+.event_title {
+    text-align: center;
+}
+
+.event_image {
+    width: 100%;
+    height: 500px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media only screen and (min-width: 1140px) {
+    .event_card_image {
+        width: 100%;
+        height: 500px;
+        width: 100%;
+        margin: 0 auto;
+        transition: transform .5s; // Animation
+    }
+
+    .event_card_image:hover {
+        position: relative;
+        padding-left: 60px;
+        padding-right: 60px;
+        z-index: 1000;
+        transform: scale(1.5); // (150% zoom - Note: if the zoom is too large, it will go outside of the viewport)
+    }
 }
 
 .event_link {
-    padding-bottom: 100px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 50px;
 }
 
-.event_poster {
-    transition: transform .2s; // Animation
-    width: 100%;
-    margin: 0 auto;
-  }
-  
-.event_poster:hover {
-    margin-left: 70px;
-    margin-bottom: 150px;
-    transform: scale(1.5); // (150% zoom - Note: if the zoom is too large, it will go outside of the viewport)
+.event_card_image .edit {
+    position: absolute;
+    left: 5%;
+    cursor: pointer;
+    border-radius: 5px;
 }
-*/
+
+.event_card_image .show {
+    position: absolute;
+    right: 5%;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+@media only screen and (min-width: 1140px) {
+    .event_card_image .edit {
+        margin-left: 40px;
+        position: absolute;
+        left: 5%;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    
+    .event_card_image .show {
+        margin-right: 40px;
+        position: absolute;
+        right: 5%;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+}
+
+
