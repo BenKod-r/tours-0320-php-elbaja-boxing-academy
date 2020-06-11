@@ -9,7 +9,7 @@
             <h1 class="event_page_title">ÉVÈNEMENTS</h1>
         </div>
         <div class="event_link">
-            <a href="{{ path('event_new') }}"><input type="button" class="btn btn-dark" value="Create new"></a>
+            <a class="btn btn-dark" href="{{ path('event_new') }}">Create new</a>
         </div>
         <div class="event_card row justify-content-around">
         {% for event in events %}
@@ -21,8 +21,8 @@
                     </div>
                     <div class="event_card_image">
                         <a href="{{ path('event_show', {'id': event.id}) }}"><img class="event_image card-img-top" src="{{ asset( event.poster ) }}" alt="Card image cap"  title="Cliquer sur l'image pour en savoir plus !" /></a>
-                        <a href="{{ path('event_show', {'id': event.id}) }}"><input type="button" class="show btn btn-success" value="en savoir plus !" /></a>
-                        <a href="{{ path('event_edit', {'id': event.id}) }}"><input type="button" class="edit btn btn-success" value="edit" /></a>
+                        <a class="show btn btn-success" href="{{ path('event_show', {'id': event.id}) }}">en savoir plus !</a>
+                        <a class="edit btn btn-success" href="{{ path('event_edit', {'id': event.id}) }}">edit</a>
                     </div>
                 </div>
             </div>
