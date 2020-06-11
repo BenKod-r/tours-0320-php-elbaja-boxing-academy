@@ -51,7 +51,7 @@
         height: 500px;
         width: 100%;
         margin: 0 auto;
-        transition: transform .5s; // Animation
+        transition: transform .5s;
     }
 
     .event_card_image:hover {
@@ -59,7 +59,7 @@
         padding-left: 60px;
         padding-right: 60px;
         z-index: 1000;
-        transform: scale(1.5); // (150% zoom - Note: if the zoom is too large, it will go outside of the viewport)
+        transform: scale(1.5);
     }
 }
 
