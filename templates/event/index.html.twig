@@ -3,41 +3,37 @@
 {% block title %}Event index{% endblock %}
 
 {% block body %}
-    <h1 class="title_event">Event index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Poster</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>DateStart</th>
-                <th>DateEnd</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <section class="event">
+        <div class="event_page">
+            <h1 class="event_page_title">ÉVÈNEMENTS</h1>
+        </div>
+        <div class="event_link">
+            <a class="btn btn-dark" href="{{ path('event_new') }}">Create new</a>
+        </div>
+        <div class="event_card row justify-content-around">
         {% for event in events %}
-            <tr>
-                <td>{{ event.id }}</td>
-                <td><img class="poster_event" src="{{ asset( event.poster ) }}" alt="poster_event"/></td>
-                <td>{{ event.name }}</td>
-                <td>{{ event.description }}</td>
-                <td>{{ event.dateStart ? event.dateStart|date('d/m/Y') : '' }}</td>
-                <td>{{ event.dateEnd ? event.dateEnd|date('d/m/Y') : '' }}</td>
-                <td>
-                    <a href="{{ path('event_show', {'id': event.id}) }}">show</a>
-                    <a href="{{ path('event_edit', {'id': event.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
+            <div class="card-deck col-xs-12 col-md-6 col-xl-4">
+                <div class="card bg-dark text-white">
+                    <div class="card-body">
+                        <h3 class="event_title card-title">{{ event.name }}</h3>
+                        <p class="card-text">{{ event.dateStart ? event.dateStart|date('d/m/Y') : '' }}</p>
+                    </div>
+                    <div class="event_card_image">
+                        <a href="{{ path('event_show', {'id': event.id}) }}"><img class="event_image card-img-top" src="{{ asset( event.poster ) }}" alt="Card image cap"  title="Cliquer sur l'image pour en savoir plus !" /></a>
+                        <a class="show btn btn-success" href="{{ path('event_show', {'id': event.id}) }}">en savoir plus !</a>
+                        <a class="edit btn btn-success" href="{{ path('event_edit', {'id': event.id}) }}">edit</a>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+                <p colspan="7">no records found</p>
         {% endfor %}
-        </tbody>
-    </table>
+        </div>
+    </section>
+    
+{% endblock %}
 
-    <a href="{{ path('event_new') }}">Create new</a>
+{% block javascripts %}
+
 {% endblock %}
