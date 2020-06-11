@@ -1,5 +1,156 @@
 {% extends 'base.html.twig' %}
 
  {% block body %}
-     <h1> Bienvenue ! - PROJET 3 </h1>
+     <!--Carousel Wrapper-->
+     <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails" data-ride="carousel" data-interval="3000">
+         <!--Slides-->
+         <div class="carousel-inner" role="listbox">
+             <div class="carousel-item active">
+                 <img class="d-block w-100" src="{{ asset('build/home/home_boxer_1.png') }}" alt="First slide">
+             </div>
+             <div class="carousel-item">
+                 <img class="d-block w-100" src="{{ asset('build/home/home_boxer_2.png') }}" alt="Second slide">
+             </div>
+             <div class="carousel-item">
+                 <img class="d-block w-100" src="{{ asset('build/home/home_boxer_3.png') }}" alt="Third slide">
+             </div>
+         </div>
+         <!--/.Slides-->
+         <!--Controls-->
+         <a class="carousel-control-prev" href="#carousel-thumb" role="button" data-slide="prev">
+             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+             <span class="sr-only">Previous</span>
+         </a>
+         <a class="carousel-control-next" href="#carousel-thumb" role="button" data-slide="next">
+             <span class="carousel-control-next-icon" aria-hidden="true"></span>
+             <span class="sr-only">Next</span>
+         </a>
+         <!--/.Controls-->
+         <ol class="carousel-indicators">
+             <li data-target="#carousel-thumb" data-slide-to="0" class="active">
+             </li>
+             <li data-target="#carousel-thumb" data-slide-to="1">
+             </li>
+             <li data-target="#carousel-thumb" data-slide-to="2">
+             </li>
+         </ol>
+     </div>
+     <!--/.Carousel Wrapper-->
+
+     <!-- ChoseUs Section Begin -->
+     <section class="choseus-section spad">
+         <div class="container">
+             <div class="row">
+                 <div class="col-lg-12">
+                     <div class="section-title">
+                         <span>Pourquoi nous choisir ?</span>
+                         <h2>REPOUSSEZ VOS LIMITES</h2>
+                     </div>
+                 </div>
+             </div>
+             <div class="row">
+                 <div class="col-lg-3 col-sm-6">
+                     <div class="cs-item">
+                         <span class="fa fa-bolt fa-3x"></span>
+                         <h4>Boxe Anglaise</h4>
+                         <h4>MMA</h4>
+                     </div>
+                 </div>
+                 <div class="col-lg-3 col-sm-6">
+                     <div class="cs-item">
+                         <span class="fa fa-sign-language fa-3x"></span>
+                         <h4>Kick Boxing</h4>
+                         <h4>Cardio Boxing</h4>
+                     </div>
+                 </div>
+                 <div class="col-lg-3 col-sm-6">
+                     <div class="cs-item">
+                         <span class="fa fa-heartbeat fa-3x"></span>
+                         <h4>Cardio Training</h4>
+                         <h4>Coaching</h4>
+                     </div>
+                 </div>
+                 <div class="col-lg-3 col-sm-6">
+                     <div class="cs-item">
+                         <span class="fa fa-users fa-3x"></span>
+                         <h4>Hommes / Femmes</h4>
+                         <h4>Enfants</h4>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+     <!-- ChoseUs Section End -->
+     <!-- Trainers -->
+<section class="trainer-area section-gap" id="trainer">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">Nos coachs experimentés</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center d-flex align-items-center">
+            <div class="col-lg-3 col-md-6 single-trainer">
+                <div class="thumb">
+                    <img class="img-fluid" src="{{ asset('build/home/home_trainer.jpg') }}" alt="trainer">
+                    <div class="align-items-center justify-content-center d-flex">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="meta-text mt-30 text-center">
+                    <h4>Barbara</h4>
+                    <p>MMA</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 single-trainer">
+                <div class="thumb">
+                    <img class="img-fluid" src="{{ asset('build/home/home_trainer.jpg') }}" alt="trainer">
+                    <div class="align-items-center justify-content-center d-flex">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="meta-text mt-30 text-center">
+                    <h4>Barbara</h4>
+                    <p>MMA</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 single-trainer">
+                <div class="thumb">
+                    <img class="img-fluid" src="{{ asset('build/home/home_trainer.jpg') }}" alt="trainer">
+                    <div class="align-items-center justify-content-center d-flex">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="meta-text mt-30 text-center">
+                    <h4>Barbara</h4>
+                    <p>MMA</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!--End Trainers -->
+     <!-- Join Us-->
+     <section class="callto-area section-gap relative">
+         <div class="overlay overlay-bg"></div>
+         <div class="container">
+             <div class="row">
+                 <div class="call-wrap mx-auto">
+                     <h1>Ce n'est jamais trop tard pour commencer, rejoignez-nous !</h1>
+                     <div class = "button">
+                        <a href="#" class="btn btn-outline-danger btn-lg" role="button" aria-pressed="true">Devenir membre</a>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+     <!--End Join Us-->
  {% endblock %}

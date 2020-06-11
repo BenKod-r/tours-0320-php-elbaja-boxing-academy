@@ -1,6 +1,6 @@
 <header>
     <nav class="navbar navbar-expand-lg py-3 shadow-sm fixed-top">
-        <a href="#" class="navbar-brand font-weight-bold mr-auto">
+        <a href="/" class="navbar-brand font-weight-bold mr-auto">
             <img src="{{ asset('build/logoEBA.jpg') }}" width="90" alt="logo EBC" class="d-inline-block align-middle mr-2">
         <span class="text-uppercase font-weight-bold">Elbaja Boxing Club</span>
         </a>
@@ -58,13 +58,13 @@
                     </div>
                 </li>
                 <li class="nav-item"><a href="" class="nav-link font-weight-bold text-uppercase">Association</a></li>
-                <li class="nav-item"><a href="" class="nav-link font-weight-bold text-uppercase">Evenements</a></li>
-                <li class="nav-item"><a href="" class="nav-link font-weight-bold text-uppercase">Les Princes du Ring</a></li>
+                <li class="nav-item"><a href="{{ path('event_index') }}" class="nav-link font-weight-bold text-uppercase">Evenements</a></li>
+                <li class="nav-item"><a href="/prince" class="nav-link font-weight-bold text-uppercase">Les Princes du Ring</a></li>
                 <li class="nav-item"><a href="" class="nav-link font-weight-bold text-uppercase">Contact</a></li>
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">
                 <li class="nav-item">
-                    <a class="nav-link waves-effect waves-light" href="https://fr-fr.facebook.com/ElBajaboxingAcademy/">
+                    <a class="nav-link waves-effect waves-light" href="https://fr-fr.facebook.com/ElBajaboxingAcademy/" target="_blank">
                         <i class="fa fa-facebook"></i>
                     </a>
                 </li>
@@ -73,16 +73,21 @@
                         <i class="fa fa-user"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item waves-effect waves-light" href="#">Connexion</a>
-                        <a class="dropdown-item waves-effect waves-light" href="#">Créer un compte</a>
-                        <a class="dropdown-item waves-effect waves-light" href="#">Se deconnecter</a>
+                        {% if app.user %}
+                            <a class="dropdown-item" href="{{ path('app_profile') }}">Mon compte<span class="sr-only">(current)</span></a>
+                            <p class="loginUser">{{ app.user.email }}</p>
+                        {% else %}
+                            <a class="dropdown-item" href="{{ path('app_login') }}" >Connection</a>
+                        {% endif %}
+                        {% if app.user %}
+                            <a class="dropdown-item" href="{{ path('app_logout') }}"> Se déconnecter</a>
+                        {% endif %}
                     </div>
                 </li>
             </ul>
         </div>
-        <button type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler order-md-1 custom-toggler">
+        <button type="button" data-toggle="collapse" data-target="#navbarContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler order-md-1 custom-toggler">
             <span class="navbar-toggler-icon"></span>
         </button>
     </nav>
 </header>
-

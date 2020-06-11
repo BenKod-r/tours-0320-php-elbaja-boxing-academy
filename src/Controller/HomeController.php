@@ -33,4 +33,14 @@ class HomeController extends AbstractController
     {
         return $this->render('partenaire.html.twig');
     }
+
+    /**
+     * Prince of The Ring page display
+     * @Route("/prince",name="prince_index")
+     * @return Response A response instance
+     */
+    public function prince() :Response
+    {
+        return $this->render('home/prince.html.twig');
+    }
 }
