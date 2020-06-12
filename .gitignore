@@ -1,3 +1,5 @@
+###> vs.code/history ###
+/.history
 
 ###> symfony/framework-bundle ###
 /.env.local

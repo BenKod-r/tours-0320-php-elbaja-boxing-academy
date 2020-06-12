@@ -29,6 +29,7 @@ It's symfony website-skeleton project with some additional tools to validate cod
 1. Clone this project
 2. Run `composer install`
 3. Run `yarn install`
+4. Run `yarn encore dev`
 
 ### Working
 
@@ -48,6 +49,16 @@ It's symfony website-skeleton project with some additional tools to validate cod
 If you develop on Windows, you should edit you git configuration to change your end of line rules with this command :
 
 `git config --global core.autocrlf true`
+
+### Database, Entities
+
+Copy the file *.env* to the root of the project  
+Rename the *.env* file to *.env.local*  
+Copy the next 2 lines by replacing the correct elements  
+__\# .env.local__  
+__DATABASE_URL="mysql://your_username:your_pwd@127.0.0.1:3306/your_db_name"__    
+Run `php bin/console make:migration`  
+Run `php bin/console doctrine:migrations:migrate`  
 
 ## Deployment
 

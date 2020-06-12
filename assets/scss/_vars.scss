@@ -1,3 +1,16 @@
-$primary-color: #f76c6c;
-$secondary-color: #f99797;
-$warm-color: #ffd64f;
+//GREEN LOGO ASSOCIATION
+$primary-color: #18f20b;
+
+//BLACK LOGO ASSOCIATION
+$secondary-color : #000000;
+
+//FONTS
+@font-face {
+    font-family:"Boxing";
+    src: url('../fonts/BOXING.otf') format('opentype');
+}
+
+@font-face {
+    font-family:"Graduate";
+    src: url('../fonts/Graduate-Regular.ttf') format('truetype');
+}

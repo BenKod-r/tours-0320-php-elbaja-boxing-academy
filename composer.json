@@ -6,7 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "phpmd/phpmd": "^2.6",
-        "sensio/framework-extra-bundle": "^5.1",
+        "sensio/framework-extra-bundle": "^5.5",
         "symfony/asset": "4.3.*",
         "symfony/console": "4.3.*",
         "symfony/dotenv": "4.3.*",
@@ -24,10 +24,13 @@
         "symfony/twig-bundle": "4.3.*",
         "symfony/validator": "4.3.*",
         "symfony/web-link": "4.3.*",
-        "symfony/webpack-encore-bundle": "^1.5",
-        "symfony/yaml": "4.3.*"
+        "symfony/webpack-encore-bundle": "^1.7",
+        "symfony/yaml": "4.3.*",
+        "zendframework/zend-code": "^3.4",
+        "zendframework/zend-eventmanager": "^3.2"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.3",
         "phpro/grumphp": "^0.15.2",
         "phpstan/phpdoc-parser": "^0.3.4",
         "phpstan/phpstan": "^0.11.6",
