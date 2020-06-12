@@ -1,9 +1,8 @@
-.partners{
+.partner {
     background-color: $secondary-color;
 }
 
-.center{
-    
+.partner_center {
     font-family: "Graduate";
     text-align: center;
     border: 2rem solid;
@@ -16,15 +15,14 @@
     box-sizing: border-box;
 }
 
-.assos{
-    
+.partner_assos {
     font-family: "Graduate";
     text-align: center;
     border: 1rem solid;
     background-color: $primary-color;
 }
 
-.events{
+.partner_events {
     font-family: "Graduate";
     text-align: center;
     border: 1rem solid;

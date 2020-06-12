@@ -16,22 +16,23 @@
     color: $primary-color;
 }
 
-.card-deck {
+.event_deck {
     padding-top: 30px;
     padding-left: 50px;
     padding-right: 50px;
 }
 
 @media only screen and (min-width: 1140px) {
-    .card-deck {
+    .event_deck {
         padding-top: 125px;
         padding-left: 30px;
         padding-right: 30px;
     }
 }
 
-.card {
+.event_card {
     max-width: 100%;
+    margin: 0 auto;
 }
 
 .event_title {
@@ -69,14 +70,14 @@
     padding-right: 50px;
 }
 
-.edit {
+.event_edit {
     position: absolute;
     left: 5%;
     cursor: pointer;
     border-radius: 5px;
 }
 
-.show {
+.event_show {
     position: absolute;
     right: 5%;
     cursor: pointer;
@@ -84,19 +85,25 @@
 }
 
 @media only screen and (min-width: 1140px) {
-    .edit {
-        margin-left: 40px;
-        position: absolute;
-        left: 5%;
-        cursor: pointer;
-        border-radius: 5px;
+    .event_edit {
+        visibility: hidden;
     }
 
-    .show {
-        margin-right: 40px;
-        position: absolute;
-        right: 5%;
-        cursor: pointer;
+    .event_show {
+        visibility: hidden;
+    }
+
+    .event_card_image:hover .event_edit {
+        visibility: visible;
+        margin-left: 40px;
         border-radius: 5px;
+        
+    }
+
+    .event_card_image:hover .event_show {
+        visibility: visible;
+        margin-right: 40px;
+        border-radius: 5px;
+        
     }
 }
