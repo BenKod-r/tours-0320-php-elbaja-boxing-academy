@@ -1,0 +1,21 @@
+# config/packages/easy_admin.yaml
+easy_admin:
+    entities:
+        Event :
+            class: App\Entity\Event
+        Member:
+            class: App\Entity\Member
+        Project:
+            class: App\Entity\Project
+        User:
+            class: App\Entity\User
+            controller: App\Controller\UserAdminController
+            form:
+                fields:
+                    - { property: 'email'}
+                    - { property: 'plainPassword', type: 'password', type_options: { required: false }}
+
+    design:
+      brand_color: 'red'
+
+    site_name: 'Administration du site ELBAJA BOXING ACADEMY'
