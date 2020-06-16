@@ -15,8 +15,9 @@
                         <p class="project_description card-text">{{ project.description }}</p>
                     </div>
                     <div class="project_footer card-footer">
-                        <small class="project_text_footer text-white">{{ project.dateStart ? project.dateStart|date('d-m-Y') : '' }}</small>
-                        <small class="project_text_footer text-white">{{ project.dateEnd ? project.dateEnd|date('d-m-Y') : '' }}</small>
+                        <small class="project_text_footer text-white">Date de début : {{ project.dateStart ? project.dateStart|date('d-m-Y') : '' }}</small>
+                        <small class="project_text_footer text-white">Date de fin : {{ project.dateEnd ? project.dateEnd|date('d-m-Y') : '' }}</small>
+                        <hr>
                         <a class="project_show btn btn-success" href="{{ path('project_show', {'id': project.id}) }}">En savoir plus !</a>
                         <a class="project_edit btn btn-success" href="{{ path('project_edit', {'id': project.id}) }}">Editer</a>
                         <a class="project_new btn btn-success" href="{{ path('project_new') }}">Créer</a>
@@ -28,5 +29,4 @@
         {% endfor %}
     </div>
 </section>
-
 {% endblock %}
