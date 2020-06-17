@@ -193,12 +193,7 @@
 // event/show.html.twig
 .event_show_body {
     font-family: "Graduate";
-    background:
-        linear-gradient(
-        rgba(0, 0, 0, 0.8), 
-        rgba(0, 0, 0, 0.8)
-        ),
-        url("../images/gant_background.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../images/gant_background.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
