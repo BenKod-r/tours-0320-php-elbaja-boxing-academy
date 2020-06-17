@@ -229,7 +229,9 @@
 }
 
 .event_show_text {
-        margin: 50px;
+    margin: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 @media only screen and (min-width: 992px) {
