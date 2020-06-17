@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\PartnersRepository;
+use App\Repository\PartnerRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=PartnersRepository::class)
+ * @ORM\Entity(repositoryClass=PartnerRepository::class)
  */
-class Partners
+class Partner
 {
     /**
      * @ORM\Id()
@@ -25,7 +25,7 @@ class Partners
     /**
      * @ORM\Column(type="text")
      */
-    private $description;
+    private $decription;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -49,14 +49,14 @@ class Partners
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getDecription(): ?string
     {
-        return $this->description;
+        return $this->decription;
     }
 
-    public function setDescription(string $description): self
+    public function setDecription(string $decription): self
     {
-        $this->description = $description;
+        $this->decription = $decription;
 
         return $this;
     }

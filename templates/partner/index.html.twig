@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Partner index{% endblock %}
+
+{% block body %}
+    <section class="partner">
+        <div class="partner_page">
+            <h1 class="partner_page_title">Partenaire</h1>
+        </div>
+        <div class="partner_link">
+            <a class="partner_btn btn btn-dark" href="{{ path('partner_new') }}">Create new</a>
+        </div>
+        <div class="partner_card row justify-content-around">
+        {% for partner in partners %}
+            <div class="partner_deck card-deck col-xs-12 col-md-6 col-xl-4">
+                <div class="partner_card card bg-dark text-white">
+                    <div class="partner_body card-body">
+                        <h3 class="partner_title card-title">{{ partner.name }}</h3>
+                    </div>
+                    <div class="partner_card_image">
+                        <img class="partner_image card-img-top" src="{{ asset( partner.poster ) }}" alt="Card image cap"  title="Cliquer sur l'image pour en savoir plus !" /></a>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+                <p class="partner_p"colspan="7">no records found</p>
+        {% endfor %}
+        </div>
+    </section>
+{% endblock %}

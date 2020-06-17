@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Partners{% endblock %}
+{% block title %}Partner{% endblock %}
 
 {% block body %}
-    <h1>Partners</h1>
+    <section class="event">
+
+    <h1>Partner</h1>
 
     <table class="table">
         <tbody>
@@ -16,8 +18,8 @@
                 <td>{{ partner.name }}</td>
             </tr>
             <tr>
-                <th>Description</th>
-                <td>{{ partner.description }}</td>
+                <th>Decription</th>
+                <td>{{ partner.decription }}</td>
             </tr>
             <tr>
                 <th>Poster</th>
@@ -26,9 +28,10 @@
         </tbody>
     </table>
 
-    <a href="{{ path('partners_index') }}">back to list</a>
+    <a href="{{ path('partner_index') }}">back to list</a>
 
-    <a href="{{ path('partners_edit', {'id': partner.id}) }}">edit</a>
+    <a href="{{ path('partner_edit', {'id': partner.id}) }}">edit</a>
 
-    {{ include('partners/_delete_form.html.twig') }}
+    {{ include('partner/_delete_form.html.twig') }}
+    </section>
 {% endblock %}
