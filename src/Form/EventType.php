@@ -7,7 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
@@ -18,13 +18,18 @@ class EventType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('description', TextareaType::class)
-            ->add('dateStart', DateType::class, [ 'widget' => 'single_text' ])
-            ->add('dateTime', TimeType::class, [
+            ->add('startDate', DateTimeType::class, [
                 'placeholder' => [
-                    'hour' => 'Heure', 'minute' => 'Minute'
+                    'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour',
+                    'hour' => 'Heure', 'minute' => 'Minute',
                 ]
             ])
-            ->add('dateEnd', DateType::class, [ 'widget' => 'single_text' ])
+            ->add('endDate', DateTimeType::class, [
+                'placeholder' => [
+                    'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour',
+                    'hour' => 'Heure', 'minute' => 'Minute',
+                ]
+            ])
             ->add('location', TextType::class)
             ->add('poster', TextType::class)
         ;

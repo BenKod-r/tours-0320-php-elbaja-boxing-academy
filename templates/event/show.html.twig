@@ -11,12 +11,12 @@
             <img class="col-12 col-lg-4" src="{{ asset (event.poster) }}" />
             <div class="event_show_text">
                 <p>{{ event.description }}</p>
-                <p>Date : {{ event.dateStart ? event.dateStart|localizeddate('none', 'none',null ,null , 'EEEE dd MMMM yyyy') }}</p>
-                {% if event.dateEnd is not empty %}
-                <p>Fin : {{ event.dateEnd ? event.dateEnd|localizeddate('none', 'none',null ,null , 'EEEE dd MMMM yyyy') }}<p>
+                <p>Date : {{ event.startDate ? event.startDate|localizeddate('none', 'none',null ,null , 'EEEE dd MMMM yyyy') }}</p>
+                {% if event.endDate is not empty %}
+                <p>Fin : {{ event.endDate ? event.endDate|localizeddate('none', 'none',null ,null , 'EEEE dd MMMM yyyy') }}<p>
                 {% endif %}
-                {% if event.dateTime is not empty %}
-                <p>Horaire : {{ event.dateTime ? event.dateTime|date('H\\Hi') : '' }}</p>
+                {% if event.startDate is not empty %}
+                <p>Horaire : {{ event.startDate ? event.startDate|date('H\\Hi') : '' }}</p>
                 {% endif %}
                 {% if event.location is not empty %}
                 <p>Lieu : {{ event.location }}<p>

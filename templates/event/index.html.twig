@@ -17,7 +17,7 @@
                 <div class="event_card card bg-dark text-white">
                     <div class="event_body card-body">
                         <h3 class="event_title card-title">{{ event.name }}</h3>
-                        <p class="event_text card-text">{{ event.dateStart ? event.dateStart|localizeddate('none', 'none',null ,null , 'EEEE dd MMMM yyyy') }}</p>
+                        <p class="event_text card-text">{{ event.startDate ? event.startDate|localizeddate('none', 'none',null ,null , 'EEEE dd MMMM yyyy') }}</p>
                     </div>
                     <div class="event_card_image">
                         <a class="event_link_image" href="{{ path('event_show', {'id': event.id}) }}"><img class="event_image card-img-top" src="{{ asset( event.poster ) }}" alt="Card image cap"  title="Cliquer sur l'image pour en savoir plus !" /></a>
