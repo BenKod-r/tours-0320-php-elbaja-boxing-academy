@@ -1,4 +1,7 @@
-.event {
+//body event
+.event,
+.event_page_new,
+.event_page_edit {
     font-family: "Graduate";
     background-image: url("../images/backgroundEBA.jpg");
     background-repeat: no-repeat;
@@ -8,14 +11,21 @@
     padding-bottom: 150px;
 }
 
-.event_page {
+.event_page,
+.event_show_page,
+.event_page_new_title,
+.event_page_edit_title {
     background-color: black;
 }
 
-.event_page_title {
+.event_page_title,
+.event_show_page_title,
+.event_page_new_title,
+.event_page_edit_title {
     color: $primary-color;
 }
 
+// event/index.html.twig
 .event_deck {
     padding-top: 30px;
     padding-left: 50px;
@@ -35,15 +45,33 @@
     margin: 0 auto;
 }
 
-.event_title {
+.event_title, .event_text {
     text-align: center;
+    font-size: 40px;
+}
+
+@media only screen and (min-width: 992px) {
+    .event_title, .event_text {
+        font-size: 25px;
+    }
 }
 
 .event_image {
     width: 100%;
-    height: 500px;
-    width: 100%;
+    height: 1200px;
     margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+    .event_image {
+        height: 900px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .event_image {
+        height: 500px;
+    }
 }
 
 @media only screen and (min-width: 1140px) {
@@ -72,6 +100,7 @@
 
 .event_edit {
     position: absolute;
+    font-size: 40px;
     left: 5%;
     cursor: pointer;
     border-radius: 5px;
@@ -79,9 +108,20 @@
 
 .event_show {
     position: absolute;
+    font-size: 40px;
     right: 5%;
     cursor: pointer;
     border-radius: 5px;
+}
+
+@media only screen and (min-width: 992px) {
+    .event_edit {
+        font-size: initial;
+    }
+
+    .event_show {
+        font-size: initial;
+    }
 }
 
 @media only screen and (min-width: 1140px) {
@@ -105,5 +145,107 @@
         margin-right: 40px;
         border-radius: 5px;
         
+    }
+}
+
+// event/_form.html.twig
+
+.event_form label,
+.event_form input[type="text"],
+.event_form input[type="date"],
+.event_form fieldset,
+.event_form button,
+.event_form select,
+.event_form textarea,
+.event_page_new a,
+.event_page_edit a,
+.event_delete,
+.event_form fieldset {
+    font-size: 50px;
+}
+
+@media only screen and (min-width: 992px) {
+    .event_form label,
+    .event_form input[type="text"],
+    .event_form input[type="date"],
+    .event_form fieldset,
+    .event_form button,
+    .event_form select,
+    .event_form textarea,
+    .event_page_new a,
+    .event_page_edit a,
+    .event_delete,
+    .event_form fieldset {
+        font-size: initial;
+    }
+}
+
+.event_form input {
+    height: 100px;
+}
+
+@media only screen and (min-width: 992px) {
+    .event_form input {
+        height: initial;
+    }
+}
+
+// event/show.html.twig
+.event_show_body {
+    font-family: "Graduate";
+    background:
+        linear-gradient(
+        rgba(0, 0, 0, 0.8), 
+        rgba(0, 0, 0, 0.8)
+        ),
+        url("../images/gant_background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 150px;
+    font-size: 35px;
+}
+
+@media only screen and (min-width: 992px) {
+    .event_show_body {
+        font-size: 20px;
+    }
+}
+
+.event_show_content {
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+@media only screen and (min-width: 992px) {
+    .event_show_content {
+        flex-direction: initial;
+        border: solid 2px;
+        border-color: $primary-color;
+        border-radius: 5px;
+        
+    }
+}
+
+.event_show_text {
+        margin: 50px;
+}
+
+@media only screen and (min-width: 992px) {
+    .event_show_text {
+    margin-top: 30px;
+    margin-right: 120px;
+    margin-left: 120px;
+    }
+}
+
+.event_show_body a {
+    font-size: 50px;
+}
+
+@media only screen and (min-width: 992px) {
+    .event_show_body a {
+        font-size: initial;
     }
 }

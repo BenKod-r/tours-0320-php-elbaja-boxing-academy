@@ -27,6 +27,7 @@
         "symfony/web-link": "4.3.*",
         "symfony/webpack-encore-bundle": "^1.7",
         "symfony/yaml": "4.3.*",
+        "twig/extensions": "^1.5",
         "zendframework/zend-code": "^3.4",
         "zendframework/zend-eventmanager": "^3.2"
     },

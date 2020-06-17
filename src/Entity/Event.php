@@ -33,9 +33,19 @@ class Event
     private $dateStart;
 
     /**
+     * @ORM\Column(type="time")
+     */
+    private $dateTime;
+
+    /**
      * @ORM\Column(type="date", nullable=true)
      */
     private $dateEnd;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $location;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -103,6 +113,30 @@ class Event
     public function setPoster(?string $poster): self
     {
         $this->poster = $poster;
+
+        return $this;
+    }
+
+    public function getDateTime(): ?\DateTimeInterface
+    {
+        return $this->dateTime;
+    }
+
+    public function setDateTime(\DateTimeInterface $dateTime): self
+    {
+        $this->dateTime = $dateTime;
+
+        return $this;
+    }
+
+    public function getLocation(): ?string
+    {
+        return $this->location;
+    }
+
+    public function setLocation(string $location): self
+    {
+        $this->location = $location;
 
         return $this;
     }
