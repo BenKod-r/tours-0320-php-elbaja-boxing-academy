@@ -23,11 +23,12 @@
         "symfony/serializer-pack": "*",
         "symfony/translation": "4.3.*",
         "symfony/twig-bundle": "4.3.*",
-        "symfony/twig-pack": "^1.0",
+        "symfony/twig-pack": "v1.0.0",
         "symfony/validator": "4.3.*",
         "symfony/web-link": "4.3.*",
         "symfony/webpack-encore-bundle": "^1.7",
         "symfony/yaml": "4.3.*",
+        "twig/extensions": "^1.5",
         "zendframework/zend-code": "^3.4",
         "zendframework/zend-eventmanager": "^3.2"
     },
