@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 <section class="partners">
-  <div class="d_flex">
         <div class="partners_page">
             <h1 class="partners_page_title">ÉVÈNEMENTS</h1>
         </div>
         <div class="partners_link">
             <a class="partners_btn btn btn-dark" href="partnersevent/new">Create new</a>
         </div>
-        <div class="partners_card row justify-content-around">
+      <div class="d-flex row justify-content-aroud">
+        <div class="partners_card">
                     <div class="partners_deck card-deck col-xs-12 col-md-6 col-xl-4">
                 <div class="partners_card card bg-dark text-white">
                     <div class="partners_body card-body">
@@ -19,38 +19,38 @@
                     </div>
                 </div>
             </div>
-                    </div>
+          </div>
         <div class="partners_link">
             <a class="partners_btn btn btn-dark" href="/event/new">Create new</a>
         </div>
-        <div class="partners_card row justify-content-around">
+        <div class="partners_card">
                     <div class="partners_deck card-deck col-xs-12 col-md-6 col-xl-4">
                 <div class="partners_card card bg-dark text-white">
                     <div class="partners_body card-body">
-                        <h3 class="event_title card-title">partenaire associatif</h3>
+                        <h3 class="partners_title card-title">partenaire associatif</h3>
                     </div>
                     <div class="event_card_image">
-                        <a class="event_link_image"><img class="event_image card-img-top" src="{{ asset('build/partenaire/creditAgricole.png') }}" alt="Card image cap"  title="Cliquer sur l'image pour en savoir plus !" /></a>
+                        <a class="partners_link_image"><img class="partners_image card-img-top" src="{{ asset('build/partenaire/creditAgricole.png') }}" alt="Card image cap"  title="Cliquer sur l'image pour en savoir plus !" /></a>
                     </div>
                 </div>
             </div>
                     </div>
-          <div class="event_link">
-            <a class="event_btn btn btn-dark" href="/event/new">Create new</a>
+          <div class="partners_link">
+            <a class="partners_btn btn btn-dark" href="/event/new">Create new</a>
         </div>
-        <div class="event_card row justify-content-around">
-                    <div class="event_deck card-deck col-xs-12 col-md-6 col-xl-4">
-                <div class="event_card card bg-dark text-white">
-                    <div class="event_body card-body">
-                        <h3 class="event_title card-title">partenaire associatif</h3>
+        <div class="partnerst_card">
+                    <div class="partners_deck card-deck col-xs-12 col-md-6 col-xl-4">
+                <div class="partners_card card bg-dark text-white">
+                    <div class="partners_body card-body">
+                        <h3 class="partners_title card-title">partenaire associatif</h3>
                     </div>
-                    <div class="event_card_image">
-                        <a class="event_link_image"><img class="event_image card-img-top" src="{{ asset('build/partenaire/creditAgricole.png') }}" alt="Card image cap"  title="Cliquer sur l'image pour en savoir plus !" /></a>
+                    <div class="partners_card_image">
+                        <a class="partners_link_image"><img class="partners_image card-img-top" src="{{ asset('build/partenaire/creditAgricole.png') }}" alt="Card image cap"  title="Cliquer sur l'image pour en savoir plus !" /></a>
                     </div>
                 </div>
             </div>
-                    </div>
-  </div>
+        </div>
+      </div>
 </section>
     <div class="partner_events">
     <h2>Nos partenaires d'événements</h2>
