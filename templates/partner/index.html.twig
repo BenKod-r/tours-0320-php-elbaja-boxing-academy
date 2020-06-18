@@ -8,7 +8,7 @@
             <h1 class="partner_page_title">Partenaire</h1>
         </div>
         <div class="partner_link">
-            <a class="partner_btn btn btn-dark" href="{{ path('partner_new') }}">Create new</a>
+            <a class="partner_btn btn btn-success" href="{{ path('partner_new') }}">Editer</a>
         </div>
         <div class="partner_card row justify-content-around">
         {% for partner in partners %}
@@ -18,9 +18,7 @@
                         <h3 class="partner_title card-title">{{ partner.name }}</h3>
                     </div>
                     <div class="partner_card_image">
-                        <a class="partner_link_image" href="{{ path('partner_show', {'id': partner.id}) }}"><img class="partner_image card-img-top" src="{{ asset( partner.poster ) }}" alt="Card image cap"  title="Cliquer sur l'image pour en savoir plus !" /></a>
-                        <a class="partner_show btn btn-success" href="{{ path('partner_show', {'id': partner.id}) }}">en savoir plus !</a>
-                        <a class="partner_edit btn btn-success" href="{{ path('partner_edit', {'id': partner.id}) }}">modifier</a>
+                        <a class="partner_link_image"><img class="partner_image card-img-top" src="{{ asset( partner.poster ) }}" alt="Card image cap"  title="Cliquer sur l'image pour en savoir plus !" /></a>
                     </div>
                 </div>
             </div>
