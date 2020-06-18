@@ -18,7 +18,9 @@
                         <h3 class="partner_title card-title">{{ partner.name }}</h3>
                     </div>
                     <div class="partner_card_image">
-                        <img class="partner_image card-img-top" src="{{ asset( partner.poster ) }}" alt="Card image cap"  title="Cliquer sur l'image pour en savoir plus !" /></a>
+                        <a class="partner_link_image" href="{{ path('partner_show', {'id': partner.id}) }}"><img class="partner_image card-img-top" src="{{ asset( partner.poster ) }}" alt="Card image cap"  title="Cliquer sur l'image pour en savoir plus !" /></a>
+                        <a class="partner_show btn btn-success" href="{{ path('partner_show', {'id': partner.id}) }}">en savoir plus !</a>
+                        <a class="partner_edit btn btn-success" href="{{ path('partner_edit', {'id': partner.id}) }}">modifier</a>
                     </div>
                 </div>
             </div>
