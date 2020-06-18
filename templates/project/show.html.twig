@@ -1,42 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Project{% endblock %}
+{% block title %}Projet{% endblock %}
 
 {% block body %}
-    <h1>Project</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ project.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ project.name }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ project.description }}</td>
-            </tr>
-            <tr>
-                <th>DateStart</th>
-                <td>{{ project.dateStart ? project.dateStart|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>DateEnd</th>
-                <td>{{ project.dateEnd ? project.dateEnd|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Poster</th>
-                <td>{{ project.poster }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('project_index') }}">back to list</a>
-
-    <a href="{{ path('project_edit', {'id': project.id}) }}">edit</a>
-
-    {{ include('project/_delete_form.html.twig') }}
+<section class="project_page_show">
+    <div class="project_card card">
+        <img class="project_show_image card-img-top" src="{{ asset (project.poster) }}" alt="Image du projet">
+            <div class="project_show_card card-body">
+                <h5 class="project_show_card_title card-title">{{ project.name }}</h5>
+                <p class="project_show_card_text card-text">{{ project.description }}</p>
+            </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Date de début : {{ project.dateStart ? project.dateStart|date('d-m-Y') : '' }}</li>
+            <li class="list-group-item">Date de fin : {{ project.dateEnd ? project.dateEnd|date('d-m-Y') : '' }}</li>
+        </ul>
+        <div class="project_show_card card-body">
+                {% if app.user %}
+                <a class="btn btn-warning" href="{{ path('project_edit', {'id': project.id}) }}">Modifier</a>
+                {%endif%}
+                {% if app.user %}
+                {{ include('project/_delete_form.html.twig') }}
+                {%endif%}
+                <a class="btn btn-success" href="{{ path('project_index') }}">Retour</a>
+        </div>
+    </div>
+</section>
 {% endblock %}

@@ -15,12 +15,12 @@
                                     <div class="p-4">
                                         <div class="row">
                                             <div class="col-sm-6 col-lg-3 mb-4">
-                                                <h6 class="font-weight-bold text-uppercase">Heading 1</h6>
+                                                <h6 class="font-weight-bold text-uppercase">PROJETS</h6>
                                                 <ul class="list-unstyled">
-                                                    <li class="nav-item"><a href="#" class="nav-link text-small pb-0">Unique Features</a></li>
-                                                    <li class="nav-item"><a href="#" class="nav-link text-small pb-0 ">Image Responsive</a></li>
-                                                    <li class="nav-item"><a href="#" class="nav-link text-small pb-0 ">Auto Carousel</a></li>
-                                                    <li class="nav-item"><a href="#" class="nav-link text-small pb-0 ">Newsletter Form</a></li>
+                                                    <li class="nav-item"><a href="{{ path('project_index') }}" class="nav-link text-small pb-0">DECOUVRIR</a></li>
+                                                    {% if app.user %}
+                                                        <li class="nav-item"><a href="{{ path('project_new') }}" class="nav-link text-small pb-0 ">AJOUTER</a></li>
+                                                    {%endif%}
                                                 </ul>
                                             </div>
                                             <div class="col-sm-6 col-lg-3 mb-4">
@@ -75,7 +75,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink">
                         {% if app.user %}
-                            <a class="dropdown-item" href="{{ path('app_profile') }}">Mon compte<span class="sr-only">(current)</span></a>
+                            <a class="dropdown-item" href="/admin/">Administration<span class="sr-only">(current)</span></a>
                             <p class="loginUser">{{ app.user.email }}</p>
                         {% else %}
                             <a class="dropdown-item" href="{{ path('app_login') }}" >Connexion</a>
