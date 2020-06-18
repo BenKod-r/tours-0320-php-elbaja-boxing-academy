@@ -44,6 +44,26 @@ main {
     background-color: $secondary-color;
 }
 
+/* NAVBAR LOGO */
+#logoEBC {
+    width: 50px;
+}
+
+#nav_title {
+    font-size: 15px;
+}
+
+@media only screen and (min-width: 992px) {
+    #logoEBC {
+        width: 80px;
+    }
+    
+    #nav_title {
+        font-size: inherit;
+    }
+    
+}
+
 /* NAVBAR COLOR LINK */
 .navbar-nav > li > a:hover,
 .navbar-nav > li > a:focus,
