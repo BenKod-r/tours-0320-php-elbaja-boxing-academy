@@ -16,6 +16,18 @@ easy_admin:
                     - { property: 'plainPassword', type: 'password', type_options: { required: false }}
 
     design:
-      brand_color: 'red'
+       brand_color: 'red'
+       menu:
+         - { label: "Revenir à l'accueil", route: 'home_index' }
+         - { label: "" }
+         - { entity: 'Event', label: 'Evenements' }
+         - { entity: 'Project', label: 'Projets' }
+         - { entity: 'User', label: 'Utilisateurs' }
+         - { entity: 'Member', label: 'Membres' }
 
     site_name: 'Administration du site ELBAJA BOXING ACADEMY'
+
+
+
+
+

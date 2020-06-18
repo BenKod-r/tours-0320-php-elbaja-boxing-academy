@@ -34,15 +34,4 @@ class SecurityController extends AbstractController
     {
         throw new LogicException('This method can be blank');
     }
-
-    /**
-     * @Route("/my-profile", name="app_profile")
-     */
-    public function profile(AuthenticationUtils $authenticationUtils): Response
-    {
-        if ($this->getUser()) {
-            return $this->render('security/profile.html.twig', [
-            ]);
-        }
-    }
 }
