@@ -61,7 +61,7 @@ class ProjectController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="project_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="project_edit", methods={"GET","POST"},requirements={"id": "\d+"})
      * @IsGranted("ROLE_ADMIN")
      */
     public function edit(Request $request, Project $project): Response
