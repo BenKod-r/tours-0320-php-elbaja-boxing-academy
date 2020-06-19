@@ -18,14 +18,4 @@ class HomeController extends AbstractController
     {
         return $this->render('index.html.twig');
     }
-
-    /**
-     * Partners page display
-     * @Route("/partners", name="partners_index")
-     * @return Response A response instance
-     */
-    public function partners() :Response
-    {
-        return $this->render('home/partners.html.twig');
-    }
 }
