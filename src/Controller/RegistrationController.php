@@ -2,18 +2,18 @@
 
 namespace App\Controller;
 
-use App\Form\UserType;
 use App\Entity\User;
 use App\Repository\UserRepository;
+use App\Form\RegistrationFormType;
+use App\Form\UserType;
+use App\Security\LoginFormAuthenticator;
+use App\Security\UserAuthenticationAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use App\Form\RegistrationFormType;
-use App\Security\UserAuthenticationAuthenticator;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
-use App\Security\LoginFormAuthenticator;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 /**
