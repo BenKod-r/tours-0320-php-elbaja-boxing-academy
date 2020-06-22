@@ -29,8 +29,22 @@
 }
 
 .project_page_new_title,
-.project_page_edit_title {
+.project_page_edit_title,
+.project_h1 {
     background-color: black;
+    text-align: center;
+    margin-top: 5px;
+    color: $primary-color;
+    font-size: 25px;
+}
+
+@media only screen and (min-width: 992px) {
+    .project_page_new_title,
+    .project_page_edit_title,
+    .project_h1 {
+        margin-top: 32px;
+        font-size: 40px;
+    }
 }
 
 .project_page_new_title,
