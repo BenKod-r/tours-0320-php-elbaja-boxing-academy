@@ -9,7 +9,9 @@
             <h1 class="event_page_title">ÉVÈNEMENTS</h1>
         </div>
         <div class="event_link">
-            <a class="event_btn btn btn-success" href="{{ path('event_new') }}">Créer un évènement</a>
+            {% if app.user %}
+                <a class="event_btn btn btn-success" href="{{ path('event_new') }}">Créer un évènement</a>
+            {%endif%}
         </div>
         <div class="event_card row justify-content-around">
         {% for event in events %}
@@ -22,7 +24,9 @@
                     <div class="event_card_image">
                         <a class="event_link_image" href="{{ path('event_show', {'id': event.id}) }}"><img class="event_image card-img-top" src="{{ asset( event.poster ) }}" alt="Card image cap"  title="Cliquer sur l'image pour en savoir plus !" /></a>
                         <a class="event_show btn btn-success" href="{{ path('event_show', {'id': event.id}) }}">en savoir plus !</a>
-                        <a class="event_edit btn btn-success" href="{{ path('event_edit', {'id': event.id}) }}">modifier</a>
+                        {% if app.user %}
+                            <a class="event_edit btn btn-success" href="{{ path('event_edit', {'id': event.id}) }}">modifier</a>
+                        {%endif%}
                     </div>
                 </div>
             </div>
