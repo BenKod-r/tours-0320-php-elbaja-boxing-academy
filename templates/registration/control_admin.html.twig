@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Controle administrateur existant !{% endblock %}
+
+{% block body %}
+    <section class="control_admin">
+        <form method="post">
+            <div class="form-group w-25 col-md-4 ml-auto mr-auto">
+                <h1 class="h3 mb-3 font-weight-normal">Saisir votre mail afin de contrôler si un administrateur est déjà présent</h1>
+                <label for="inputEmail" class="sr-only">Email</label>
+                <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+            </div>
+            <div class="form-group w-25 col-md-4 ml-auto mr-auto">
+                <button class="btn btn-lg btn-primary" type="submit">Envoyer !</button>
+            </div>
+        </form>
+    </section>
+{% endblock %}
