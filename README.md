@@ -60,6 +60,8 @@ __DATABASE_URL="mysql://your_username:your_pwd@127.0.0.1:3306/your_db_name"__
 Run `php bin/console make:migration`  
 Run `php bin/console doctrine:migrations:migrate`  
 
+next Run /install to create the first admin in Database.
+
 ## Deployment
 
 Add additional notes about how to deploy this on a live system
