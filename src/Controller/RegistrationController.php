@@ -16,14 +16,11 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
-/**
- * @Route("/install")
- */
 class RegistrationController extends AbstractController
 {
 
     /**
-     * @Route("/", name="app_admin")
+     * @Route("/install", name="app_admin")
      */
     public function registerAction(
         Request $request,
