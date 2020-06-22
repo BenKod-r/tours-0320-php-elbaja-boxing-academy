@@ -1,5 +1,4 @@
 .partner {
-    display: flex;
     font-family: "Graduate";
     background-image: url("../images/backgroundEBA.jpg");
     background-repeat: no-repeat;
@@ -14,7 +13,15 @@
 }
 
 .partner_page_title {
+    margin-top: 5px;
     color: $primary-color;
+    text-align: center;
+}
+
+@media only screen and (min-width: 992px) {
+    .partner_page_title {
+        margin-top: 30px;
+    }
 }
 
 .partner_deck {
@@ -99,13 +106,11 @@
         visibility: visible;
         margin-left: 40px;
         border-radius: 5px;
-        
     }
 
     .partner_card_image:hover .event_show {
         visibility: visible;
         margin-right: 40px;
         border-radius: 5px;
-        
     }
 }
