@@ -7,6 +7,8 @@ easy_admin:
             class: App\Entity\Member
         Project:
             class: App\Entity\Project
+        Partner:
+              class: App\Entity\Partner
         User:
             class: App\Entity\User
             controller: App\Controller\UserAdminController
@@ -24,6 +26,7 @@ easy_admin:
          - { entity: 'Project', label: 'Projets' }
          - { entity: 'User', label: 'Utilisateurs' }
          - { entity: 'Member', label: 'Membres' }
+         - { entity: 'Partner', label: 'Partenaires' }
 
     site_name: 'Administration du site ELBAJA BOXING ACADEMY'
 
