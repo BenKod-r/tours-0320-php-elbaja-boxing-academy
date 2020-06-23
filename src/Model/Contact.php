@@ -91,7 +91,7 @@ class Contact
      */
     public function getEmail(): string
     {
-        return $this->getEmail;
+        return $this->email;
     }
     /**
      * @param string $email
