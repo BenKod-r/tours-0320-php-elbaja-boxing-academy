@@ -4,12 +4,7 @@
 
 {% block body %}
     <section class="partner">
-        <div class="partner_page">
-            <h1 class="partner_page_title">Partenaire</h1>
-        </div>
-        <div class="partner_link">
-            <a class="partner_btn btn btn-success" href="{{ path('partner_new') }}">Editer</a>
-        </div>
+        <h1 class="partner_page">Nos partenaires</h1>
         <div class="partner_card row justify-content-around">
         {% for partner in partners %}
             <div class="partner_deck d-flex card-deck col-xs-12 col-md-6 col-xl-4">
@@ -23,7 +18,7 @@
                 </div>
             </div>
             {% else %}
-                <p class="partner_p"colspan="7">no records found</p>
+                <p class="partner_p"colspan="7">Pas de données à afficher</p>
         {% endfor %}
         </div>
     </section>
