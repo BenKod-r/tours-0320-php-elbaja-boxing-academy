@@ -57,13 +57,9 @@ Rename the *.env* file to *.env.local*
 Copy the next 2 lines by replacing the correct elements  
 __\# .env.local__  
 __DATABASE_URL="mysql://your_username:your_pwd@127.0.0.1:3306/your_db_name"__    
-Run `php bin/console make:migration`  
-Run `php bin/console doctrine:migrations:migrate`  
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
+ 
+Run : php bin/console doctrine:migrations:migrate`  
+Next : open the yourhostname/install URL in your web browser to create the first administrator.
 
 ## Built With
 

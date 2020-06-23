@@ -2,14 +2,18 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use LogicException;
 
 class SecurityController extends AbstractController
 {
+
     /**
      * @Route("/login", name="app_login")
      */
@@ -33,16 +37,5 @@ class SecurityController extends AbstractController
     public function logout()
     {
         throw new LogicException('This method can be blank');
-    }
-
-    /**
-     * @Route("/my-profile", name="app_profile")
-     */
-    public function profile(AuthenticationUtils $authenticationUtils): Response
-    {
-        if ($this->getUser()) {
-            return $this->render('security/profile.html.twig', [
-            ]);
-        }
     }
 }
