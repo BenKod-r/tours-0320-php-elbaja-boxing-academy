@@ -7,15 +7,15 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class PrinceController extends AbstractController
+class AssociationController extends AbstractController
 {
     /**
-     * Prince of The Ring page display
-     * @Route("/prince",name="prince_index")
+     * Association page display
+     * @Route("/association",name="association_index")
      * @return Response A response instance
      */
-    public function prince() :Response
+    public function association() :Response
     {
-        return $this->render('prince/index.html.twig');
+        return $this->render('association/index.html.twig');
     }
 }
