@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Model\Contact;
+use PHP_CodeSniffer\Generators\Text;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,6 +17,7 @@ class ContactType extends AbstractType
         $builder
             ->add('firstname', TextType::class)
             ->add('lastname', TextType::class)
+            ->add('email', TextType::class)
             ->add('subject', TextType::class)
             ->add('description', TextareaType::class)
         ;
