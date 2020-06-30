@@ -26,7 +26,7 @@
                         <a class="event_show btn btn-success" href="{{ path('event_show', {'id': event.id}) }}">en savoir plus !</a>
                         {% if app.user %}
                             <a class="event_edit btn btn-success" href="{{ path('event_edit', {'id': event.id}) }}">modifier</a>
-                        {%endif%}
+                        {% endif %}
                     </div>
                 </div>
             </div>
