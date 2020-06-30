@@ -5,39 +5,53 @@
  {% block body %}
 <section class="prince">
     <h1 class="prince_h1">Vivez l'évenement des Princes du Ring</h1>
-    <section id="slider" class="prince_container">
-        <ul class="slider-wrapper">
+    <div class="container">
+        <!-- Card deck -->
+        <div class="card-deck row">
 
-            <li class="current-slide">
-                <img src="{{ asset('build/prince/prince_2017.jpg') }}" title="Prince_2017" alt="Prince_2017">
-                <div class="prince_caption">
-                    <h2 class="prince_slider-title">Edition 2017</h2>
-                    <a href="https://www.facebook.com/Les-Princes-Du-Ring-374987446259787/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Suivez-nous !</a>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="card mb-4">
+                    <div class="view overlay">
+                        <img class="card-img-top" src="{{ asset('build/prince/prince_2017.jpg') }}" alt="Prince_2017">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">EDITION 2017</h4>
+                        <a href="https://www.facebook.com/Les-Princes-Du-Ring-374987446259787/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Suivez-nous !</a>
+                    </div>
                 </div>
-            </li>
+                <!-- Card -->
+            </div>
 
-            <li>
-                <img src="{{ asset('build/prince/prince_2018.jpg') }}" title="Prince_2018" alt="Prince_2018">
-                <div class="prince_caption">
-                    <h2 class="prince_slider-title">Edition 2018</h2>
-                    <a href="https://www.facebook.com/Les-Princes-Du-Ring-374987446259787/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Suivez-nous !</a>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="card mb-4">
+                    <div class="view overlay">
+                        <img class="card-img-top" src="{{ asset('build/prince/prince_2018.jpg') }}" alt="Prince_2018">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">EDITION 2018</h4>
+                        <a href="https://www.facebook.com/Les-Princes-Du-Ring-374987446259787/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Suivez-nous !</a>
+                    </div>
                 </div>
-            </li>
+                <!-- Card -->
+            </div>
 
-            <li>
-                <img src="{{ asset('build/prince/prince_2019.png') }}" title="Prince_2019" alt="Prince_2019">
-                <div class="prince_caption">
-                    <h2 class="prince_slider-title">Edition 2019</h2>
-                    <a href="https://www.facebook.com/Les-Princes-Du-Ring-374987446259787/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Suivez-nous !</a>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="card mb-4">
+                    <div class="view overlay">
+                        <img class="card-img-top" src="{{ asset('build/prince/prince_2019.png') }}" alt="Prince_2019">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">EDITION 2019</h4>
+                        <a href="https://www.facebook.com/Les-Princes-Du-Ring-374987446259787/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Suivez-nous !</a>
+                    </div>
                 </div>
-            </li>
-
-        </ul>
-
-        <div class="slider-shadow"></div>
-
-        <ul id="control-buttons" class="control-buttons"></ul>
-
-    </section>
+                <!-- Card -->
+            </div>
+        </div>
+        <!-- Card deck -->
+    </div>
 </section>
  {% endblock %}
+
+
+

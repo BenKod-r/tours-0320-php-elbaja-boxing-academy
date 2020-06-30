@@ -6,7 +6,6 @@
  */
 
 import $ from 'jquery';
-import prince from './prince';
 
 // any CSS you require will output into a single css file (app.css in this case)
 require('../scss/app.scss');
@@ -22,4 +21,3 @@ require('bootstrap');
 // require('bootstrap/js/dist/popover');
 
 $(document).ready(() => ('[data-toggle="popover"]').popover());
-
