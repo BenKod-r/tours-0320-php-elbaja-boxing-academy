@@ -25,7 +25,6 @@ class PosterController extends AbstractController
 {
     /**
     *@Route("/", name="poster_index", methods={"GET"})
-    *@IsGranted("ROLE_ADMIN")
     *
     *Returns all images in the library
     */
