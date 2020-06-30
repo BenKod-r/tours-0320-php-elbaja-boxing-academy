@@ -17,6 +17,10 @@
 
 .prince_h1{
     font-size: 4em;
+    color: #FFF;
+    text-align: center;
+    margin-top: 30px;
+    font-weight: 300;
 }
 
 .clearfix:after {
@@ -25,23 +29,6 @@
     display: block;
     height: 0;
     width: 0;
-}
-
-ul {
-    list-style-type: none;
-}
-
-a {
-    color: #00c5b9;
-    text-decoration: none;
-}
-
-h1 {
-    color: #FFF;
-    text-align: center;
-    margin-top: 30px;
-    font-weight: 300;
-    font-size: 2.4em;
 }
 
 /** ---------------------------------------
@@ -110,9 +97,9 @@ h1 {
 }
 
 /**
- * ---[Caption] ----------------------
+ * -------[Caption] ---------
  **/
-.slider-wrapper .caption {
+.slider-wrapper .prince_caption {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -130,7 +117,7 @@ h1 {
     transition: all 0.4s ease;
 }
 
-.slider-wrapper li:hover .caption {
+.slider-wrapper li:hover .prince_caption {
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
     -o-transform: translateY(0);
@@ -138,7 +125,7 @@ h1 {
     opacity: 1;
 }
 
-.slider-wrapper h2 {
+.slider-wrapper prince_slider-title {
     color: #00c5b9;
     font-size: 2em;
     font-weight: 400;
@@ -152,7 +139,7 @@ h1 {
 }
 
 /**
- * ----------[Control] ----------------------
+ * ----------[Control] -------------
  **/
 .control-buttons {
     margin-top: 15px;
@@ -197,10 +184,10 @@ h1 {
     }
 
     .slider-wrapper {
-        height: 500px;
+        height: 400px;
     }
 
-    .slider-wrapper .caption {
+    .slider-wrapper .prince_caption{
         display: none;
     }
 
@@ -208,6 +195,6 @@ h1 {
 
 @media only screen and (max-width: 410px) {
     .slider-wrapper {
-        height: 500px;
+        height: 400px;
     }
 }
