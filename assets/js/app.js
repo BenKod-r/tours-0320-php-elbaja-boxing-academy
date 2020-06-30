@@ -5,11 +5,11 @@
  * (and its CSS file) in your base layout (base.html.twig).
  */
 
+import $ from 'jquery';
+import prince from './prince';
+
 // any CSS you require will output into a single css file (app.css in this case)
 require('../scss/app.scss');
-
-// Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
-import $ from 'jquery';
 
 // app.js
 
@@ -22,7 +22,4 @@ require('bootstrap');
 // require('bootstrap/js/dist/popover');
 
 $(document).ready(() => ('[data-toggle="popover"]').popover());
-
-// JS from PRINCE PAGE
-import prince from './prince';
 
