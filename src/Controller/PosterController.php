@@ -1,4 +1,8 @@
 <?php
+/**
+ * Auteur: Khaled Benharrat, Damien Sarrazy, Kevin Chalumeau
+ * Date: 30/06/2020
+ */
 
 namespace App\Controller;
 

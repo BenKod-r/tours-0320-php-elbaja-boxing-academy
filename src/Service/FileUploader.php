@@ -34,12 +34,12 @@ class FileUploader
         // initialize number file
         $fileNumber = 1;
         $safeFileName = $this->slugify->generate($fileName);
-        $newFileName = $safeFileName.$fileNumber;
+        $newFileName = $safeFileName . $fileNumber;
         // Finds the last available unique name
         // verification unique filename in folder image
-        while (file_exists('../public/images/'.$newFileName)) {
+        while (file_exists('../public/images/' . $newFileName)) {
             $fileNumber++;
-            $newFileName = $safeFileName.$fileNumber;
+            $newFileName = $safeFileName . $fileNumber;
         }
 
         try {

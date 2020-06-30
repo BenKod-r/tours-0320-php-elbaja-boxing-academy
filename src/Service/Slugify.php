@@ -1,7 +1,7 @@
 <?php
 /**
- * Auteur: Khaled Benharrat
- * Date: 03/06/2020
+ * Auteur: Khaled Benharrat, Damien Sarrazy, Kevin Chalumeau
+ * Date: 30/06/2020
  */
 
 //src/Service/Slugify.php
@@ -31,10 +31,7 @@ class Slugify
             $slug = preg_replace("/[[:punct:]]/", "", $slug);
         }
         if (!empty($slug)) {
-            $slug = preg_replace("/ +/", "-", $slug);
-        }
-        if (!empty($slug)) {
-            $slug = preg_replace("/-+/", "-", $slug);
+            $slug = str_replace(" ", "-", $slug);
         }
         if (!empty($slug)) {
             $slug = strtolower($slug);
