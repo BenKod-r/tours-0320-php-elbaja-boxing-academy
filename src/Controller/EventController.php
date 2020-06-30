@@ -10,7 +10,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @Route("/event")
@@ -31,7 +30,7 @@ class EventController extends AbstractController
      * @Route("/new", name="event_new", methods={"GET","POST"})
      * @IsGranted("ROLE_ADMIN")
      */
-    public function new(Request $request, EventRepository $eventRepository): Response
+    public function new(Request $request): Response
     {
         $event = new Event();
         $form = $this->createForm(EventType::class, $event);
@@ -40,18 +39,6 @@ class EventController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $posterFile = $form->get('poster_img')->getData();
-            if ($posterFile) {
-                $originalFilename = pathinfo($posterFile->getClientOriginalName(), PATHINFO_FILENAME);
-                // this is needed to safely include the file name as part of the URL
-                $safeFilename = preg_replace("/ /", "-", $form->get('name')->getData());
-                $newFilename = $safeFilename.'-'.'.'.$posterFile->guessExtension();
-                $posterFile->move(
-                    $this->getParameter('event_directory'),
-                    $newFilename);
-                $event->setPoster('build/event/'.$newFilename);
-            }
-
             $entityManager->persist($event);
             $entityManager->flush();
 

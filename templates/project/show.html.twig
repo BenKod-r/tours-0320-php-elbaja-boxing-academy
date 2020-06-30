@@ -5,7 +5,9 @@
 {% block body %}
 <section class="project_page_show">
     <div class="project_card card">
-        <img class="project_show_image card-img-top" src="{{ asset (project.poster) }}" alt="Image du projet">
+    {% if project.poster.slug is defined %}
+        <img class="project_show_image card-img-top" src="{{ asset ('/images/' ~ project.poster.slug) }}" alt="Image du projet">
+    {% endif %}
             <div class="project_show_card card-body">
                 <h5 class="project_show_card_title card-title">{{ project.name }}</h5>
                 <p class="project_show_card_text card-text">{{ project.description }}</p>

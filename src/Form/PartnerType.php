@@ -4,9 +4,11 @@ namespace App\Form;
 
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use App\Entity\Partner;
+use App\Entity\Poster;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class PartnerType extends AbstractType
 {
@@ -15,7 +17,10 @@ class PartnerType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('decription', TextType::class)
-            ->add('poster', TextType::class)
+            ->add('poster', EntityType::class, [
+                'class' => Poster::class,
+                'choice_label' => 'slug',
+            ])
         ;
     }
 
