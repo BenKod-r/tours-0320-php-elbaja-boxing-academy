@@ -3,22 +3,26 @@
 {% block title %}All Poster{% endblock %}
 
 {% block body %}
-    <div class="event_link" style="padding-top: 100px;">
-    {% if app.user %}
-        <a class="event_btn btn btn-success" href="{{ path('poster_new') }}">Ajouter une image</a>
-    {% endif %}
-    </div>
-    <div class="poster_index row justify-content-start" style="padding-top: 50px; margin:5px ; padding-bottom: 50px">
-    {% for poster in posters %}
-        
-                <figure class="col-xs-12 col-lg-6 col-xl-12" style="border:thin #c0c0c0 solid; display:flex; flex-flow:column; padding:5px; max-width:250px; margin:auto;">
-                    <img style="height:200px" src="{{ asset ('/images/' ~ poster.slug) }}" />
-                    <figcaption style="height: 50px; background-color:#222; color:#fff; font:italic smaller sans-serif; padding:3px; text-align:center;">{{ poster.slug }}</figcaption>
-                    {{ include('poster/_delete_form.html.twig') }}
-                </figure>
-        
-    {% else %}
-        <p class="poster_p"colspan="7">no records found</p>
-    {% endfor %}
-    </div>
+    <section class="poster_index">
+        <div class="poster_title">
+        <h1>bibliotheque d'image</h1>
+        </div>
+        <div class="poster_link">
+        {% if app.user %}
+            <a class="poster_btn btn btn-success" href="{{ path('poster_new') }}">Ajouter une image</a>
+        {% endif %}
+        </div>
+        <div class="poster_figure row justify-content-start">
+        {% for poster in posters %}
+            <figure class="col-xs-12 col-lg-6 col-xl-12">
+                <img src="{{ asset ('/images/' ~ poster.slug) }}" />
+                <figcaption>{{ poster.slug }}</figcaption>
+            {{ include('poster/_delete_form.html.twig') }}
+            </figure>
+            
+        {% else %}
+            <p class="poster_p text-white" colspan="7">no records found</p>
+        {% endfor %}
+        </div>
+    </section>
 {% endblock %}
