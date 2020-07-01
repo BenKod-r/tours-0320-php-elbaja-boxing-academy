@@ -1,8 +1,8 @@
 <?php
 namespace App\Controller;
 
-use App\Model\Contact;
 use App\Form\ContactType;
+use App\Model\Contact;
 use App\Notification\ContactNotification;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,30 +16,30 @@ class ContactController extends AbstractController
 {
     /**
      * Contact page display
-     * @Route("/contact",name="contact_index",  methods={"GET"})
+     * @Route("/contact",name="contact_index",  methods={"GET","POST"})
      * @return Response A reponse instance
      */
-    public function contact(): Response
+    public function contact(Request $request, MailerInterface $mailer): Response
     {
-        return $this->render('contact/index.html.twig');
-    }
-
-    /**
-     * @Route("/email")
-     */
-    public function new(Request $request, MailerInterface $mailer, ContactNotification $notification): Response
-    {
-        $contact = new Contact();
-        $form = $this->createForm(ContactType::class, $contact);
+        $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $notification->notify($contact);
-            return $this->redirectToRoute('base.html.twig');
+            $contact = $form->getData();
+
+            $email = (new Email())
+                ->from($this->getParameter('mailer_from'))
+                ->to($this->getParameter('mailer_to'))
+                ->subject("Vous avez reçu un email d'un visiteur !")
+                ->html($this->renderView('contact/mail.html.twig', [
+                    'contact' => $contact
+                ]));
+
+            $mailer->send($email);
+
+            $this->addFlash('message', 'Votre message a été transmis, nous vous répondrons dans les meilleurs délais.');
         }
         return $this->render('contact/index.html.twig', [
-            'contact' => $contact,
-            'form' => $form->createView(),
-        ]);
+                'form' => $form->createView()]);
     }
 }

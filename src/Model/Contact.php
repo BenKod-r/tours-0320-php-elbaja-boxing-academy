@@ -1,14 +1,15 @@
 <?php
+
 namespace App\Model;
 
-use Symfony\Component\Validator\Constraint as Assert;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class Contact
 {
     /**
      * @Assert\Length(
      *      min = 2,
-     *      max = 100
+     *      max = 100,
      *      minMessage = "Votre prénom doit avoir plus de deux caractères",
      * )
      * @Assert\Type("string")
@@ -19,7 +20,7 @@ class Contact
     /**
      * @Assert\Length(
      *      min = 2,
-     *      max = 100
+     *      max = 100,
      *      minMessage = "Votre nom doit avoir plus de deux caractères",
      * )
      * @Assert\Type("string")
@@ -30,7 +31,7 @@ class Contact
     /**
      * @Assert\Type("string")
      * @Assert\Email(
-     *      message = "L'adresse mail  n'est une adresse valide")
+     *      message = "L'adresse mail n'est une adresse valide")
      * @Assert\NotBlank
      */
     private $email;
@@ -38,7 +39,7 @@ class Contact
     /**
      * @Assert\Length(
      *      min = 1,
-     *      max = 100
+     *      max = 100,
      *      minMessage = "Votre sujet doit avoir plus de un caractère",
      * )
      * @Assert\Type("string")
@@ -57,7 +58,7 @@ class Contact
     /**
      * @return string
      */
-    public function getFirstname(): string
+    public function getFirstname(): ?string
     {
         return $this->firstname;
     }
@@ -73,7 +74,7 @@ class Contact
     /**
      * @return string
      */
-    public function getLastname(): string
+    public function getLastname(): ?string
     {
         return $this->lastname;
     }
@@ -89,7 +90,7 @@ class Contact
     /**
      * @return string
      */
-    public function getEmail(): string
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -105,7 +106,7 @@ class Contact
     /**
      * @return string
      */
-    public function getSubject(): string
+    public function getSubject(): ?string
     {
         return $this->subject;
     }
@@ -121,7 +122,7 @@ class Contact
     /**
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
