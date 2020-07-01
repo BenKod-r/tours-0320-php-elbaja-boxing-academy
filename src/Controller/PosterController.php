@@ -93,7 +93,7 @@ class PosterController extends AbstractController
                     $entityManager->remove($project);
                 }
             }
-            unlink('../public/images/'.$poster->getSlug());
+            unlink($this->getParameter('upload_directory').'/'.$poster->getSlug());
             $entityManager->remove($poster);
             $entityManager->flush();
         }
