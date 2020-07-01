@@ -37,7 +37,7 @@ class FileUploader
         $newFileName = $safeFileName . $fileNumber;
         // Finds the last available unique name
         // verification unique filename in folder image
-        while (file_exists('../public/images/' . $newFileName)) {
+        while (file_exists($this->getTargetDirectory() . '/' . $newFileName)) {
             $fileNumber++;
             $newFileName = $safeFileName . $fileNumber;
         }

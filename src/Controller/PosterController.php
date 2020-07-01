@@ -7,7 +7,6 @@
 namespace App\Controller;
 
 use App\Entity\Poster;
-use App\Entity\Event;
 use App\Form\PosterType;
 use App\Repository\PosterRepository;
 use App\Service\FileUploader;
@@ -93,7 +92,7 @@ class PosterController extends AbstractController
                     $entityManager->remove($project);
                 }
             }
-            unlink($this->getParameter('upload_directory').'/'.$poster->getSlug());
+            unlink($this->getParameter('upload_directory') . '/' . $poster->getSlug());
             $entityManager->remove($poster);
             $entityManager->flush();
         }
