@@ -3,12 +3,14 @@ namespace App\Controller;
 
 use App\Model\Contact;
 use App\Form\ContactType;
+use App\Notification\ContactNotification;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
+use Symfony\Bundle\FrameworkBundle\Controller\ControllerTrait;
 
 class ContactController extends AbstractController
 {
@@ -25,14 +27,19 @@ class ContactController extends AbstractController
     /**
      * @Route("/email")
      */
-    public function sendEmail(MailerInterface $mailer)
+    public function new(Request $request, MailerInterface $mailer, ContactNotification $notification): Response
     {
-        $email = (new Email())
-            ->from('')
-            ->to('elbajaboxingacademytest@gmail.com')
-            ->subject('Message provenant du site internet')
-        ;
+        $contact = new Contact();
+        $form = $this->createForm(ContactType::class, $contact);
+        $form->handleRequest($request);
 
-        $mailer->send($email);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $notification->notify($contact);
+            return $this->redirectToRoute('base.html.twig');
+        }
+        return $this->render('contact/index.html.twig', [
+            'contact' => $contact,
+            'form' => $form->createView(),
+        ]);
     }
 }

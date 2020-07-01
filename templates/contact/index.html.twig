@@ -1,20 +1,20 @@
 {% extends 'base.html.twig' %}
 {% block Title %} Contactez Nous{% endblock %}
 {% block body %}
-    <div class="form">
-    <form action="" method="POST">
-        <label for="firstname">Nom : </label><br>
-        <input type="text" id="firstname" name="fistname" placeholder="Entrez votre nom" required><br>
-        <label for="lastname">Prenom : </label><br>
-        <input type="text" id="lastname" name="lastname" placeholder="Entrez votre prénom" required><br> 
-        <label for="email" >Mail</label><br>
-        <input type="text" id="email" name="email" placeholder ="Entrez votre adresse mail" required><br>
-        <label for="subject">sujet : </label><br>
-        <input type="text" id="subject" name="subject" placeholder="Entrez votre sujet" required><br>
-        <label for="story">Laissez votre message ici : </label><br>
-        <textarea id="story" name="story" rows="7" cols="40"></textarea><br>
-        <input type="submit" value="envoyer" required>
-                    
-    </form>
+    <div class="form mt-4">
+    {{form_start(form) }}
+    <div class="row">
+        <div class="col">{{ form_row(firstname) }}</div>
+        <div class="col">{{ form_row(lastname) }}</div>
+    </div>
+    <div class="row">
+        <div class="col">{{ form_row(email) }}</div>
+        <div class="col">{{ form_row(subject) }}</div>
+    </div>
+    {{ form_rest(form) }}
+    <div class="form-group">
+        <button class="btn btn-primary">Envoyer</button>
+    </div>
+    {{form_end(form) }}
     </div>
 {% endblock %}
