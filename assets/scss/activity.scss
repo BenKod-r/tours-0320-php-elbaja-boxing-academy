@@ -1,3 +1,164 @@
 /*---------------------
-     Activity
+      Activity
 -----------------------*/
+
+.activity {
+    min-height: 1500px;
+    background: $secondary-color;
+    font-family: "Graduate";
+    padding: 3em;
+}
+
+.activity_h1{
+    text-align:center;
+    color:#fff;
+}
+
+.content {
+    padding-left: 10%;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+.blocks-container {
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    width: 70.176%;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    max-width: 100%;
+    color: #fff;
+    background: linear-gradient(to right, white , #d5d5d5)
+}
+
+.holder	{
+    position: relative;
+    padding-top: 34.626%;
+}
+
+.black-block {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+    clip-path: polygon(3% 0, 89% 17%, 98% 84%, 4% 90%);
+}
+
+.second-block {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    clip-path: polygon(0 12%, 87% 6%, 100% 70%, 7% 100%);
+}
+
+.red .second-block {
+    background-color: #ed1640;
+}
+
+.orange .second-block {
+    background-color: #f5a40d;
+}
+
+.blue .second-block {
+    background-color: #43a4cf;
+}
+
+.green .second-block {
+  background-color: green;
+}
+
+.purple .second-block {
+  background-color: purple;
+}
+
+.block-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.block-description {
+    margin-left: -15%;
+}
+.outer-o {
+    width: 85%;
+    padding-top: 85%;
+    position: relative;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 10px 10px 26px rgba(0, 0, 0, 0.65);
+    margin-left: -35%;
+    margin-bottom: 5%;
+}
+
+.outer-o .inner-o {
+    position: absolute;
+    top: 15%;
+    bottom: 15%;
+    right: 15%;
+    left: 15%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 10px 10px 26px rgba(0, 0, 0, 0.65);
+}
+
+.red .outer-o .inner-o {
+    background-color: #ed1640;
+}
+
+.orange .outer-o .inner-o {
+    background-color: #f5a40d;
+}
+
+.blue .outer-o .inner-o {
+    background-color: #43a4cf;
+}
+
+.outer-o span {
+    position: absolute;
+    font-size: 100px;
+    font-weight: bold;
+}
+
+@media (max-width: 991px) {
+    .blocks-container {
+        width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+    .content {
+        padding-left: 0;
+  }
+    .block-number {
+        display: none;
+  }
+     .block-description {
+       margin-left: 10%;
+  }
+    h2 {
+        font-size: 20px;
+  }
+    p {
+        font-size: 15px;
+        max-height: 70px;
+        overflow: hidden;
+  }
+}
+
+@media (max-width: 499px) {
+    .holder {
+        padding-top: 45%;
+  }
+}
