@@ -7,7 +7,6 @@
 namespace App\Service;
 
 use App\Service\Slugify;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -34,19 +33,14 @@ class FileUploader
         // initialize number file
         $fileNumber = 1;
         $safeFileName = $this->slugify->generate($fileName);
-        $newFileName = $safeFileName . $fileNumber;
+        $newFileName = $safeFileName . $fileNumber . '.' . $file->guessExtension();
         // Finds the last available unique name
         // verification unique filename in folder image
         while (file_exists($this->getTargetDirectory() . '/' . $newFileName)) {
             $fileNumber++;
-            $newFileName = $safeFileName . $fileNumber;
+            $newFileName = $safeFileName . $fileNumber . '.' . $file->guessExtension();
         }
-
-        try {
-            $file->move($this->getTargetDirectory(), $newFileName);
-        } catch (FileException $e) {
-            return $e->getMessage();
-        }
+        $file->move($this->getTargetDirectory(), $newFileName);
 
         return $newFileName;
     }

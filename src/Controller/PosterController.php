@@ -16,6 +16,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\Exception\CannotWriteFileException;
+use Symfony\Component\HttpFoundation\File\Exception\ExtensionFileException;
+use Symfony\Component\HttpFoundation\File\Exception\FormSizeFileException;
+use Symfony\Component\HttpFoundation\File\Exception\IniSizeFileException;
+use Symfony\Component\HttpFoundation\File\Exception\NoFileException;
+use Symfony\Component\HttpFoundation\File\Exception\PartialFileException;
 
 /**
  * @Route("/poster")
@@ -49,12 +56,24 @@ class PosterController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile $posterFile */
             $posterFile = $form->get('poster_img')->getData();
-            $posterSlug = $fileUploader->upload($posterFile, $poster->getFileName());
+            try {
+                $posterSlug = $fileUploader->upload($posterFile, $poster->getFileName());
+            } catch (IniSizeFileException | FormSizeFileException $e) {
+                $this->addFlash('warning', 'Votre fichier est trop lourd, il ne doit pas dépasser 1Mo.');
+                return $this->redirectToRoute('poster_new');
+            } catch (ExtensionFileException $e) {
+                $this->addFlash('warning', 'Le format de votre fichier n\'est pas suporté.
+                    Votre fichier doit au format jpeg, jpg ou png.');
+                    return $this->redirectToRoute('poster_new');
+            } catch (PartialFileException | NoFileException | CannotWriteFileException $e) {
+                $this->addFlash('warning', 'Fichier non enregistré, veuillez réessayer.
+                    Si le problème persiste, veuillez contacter un professionnel du web');
+                    return $this->redirectToRoute('poster_new');
+            }
             $poster->setSlug($posterSlug);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($poster);
             $entityManager->flush();
-
             return $this->redirectToRoute('poster_index');
         }
 
