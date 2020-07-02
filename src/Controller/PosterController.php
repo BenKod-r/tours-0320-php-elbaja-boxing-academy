@@ -62,8 +62,8 @@ class PosterController extends AbstractController
                 $this->addFlash('warning', 'Votre fichier est trop lourd, il ne doit pas dépasser 1Mo.');
                 return $this->redirectToRoute('poster_new');
             } catch (ExtensionFileException $e) {
-                $this->addFlash('warning', 'Le format de votre fichier n\'est pas suporté.
-                    Votre fichier doit au format jpeg, jpg ou png.');
+                $this->addFlash('warning', 'Le format de votre fichier n\'est pas supporté.
+                    Votre fichier doit être au format jpeg, jpg ou png.');
                     return $this->redirectToRoute('poster_new');
             } catch (PartialFileException | NoFileException | CannotWriteFileException $e) {
                 $this->addFlash('warning', 'Fichier non enregistré, veuillez réessayer.
