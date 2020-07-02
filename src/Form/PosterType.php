@@ -25,7 +25,6 @@ class PosterType extends AbstractType
                         'maxSize' => '1024k',
                         'mimeTypes' => [
                             'image/jpeg',
-                            'image/jpg',
                             'image/png',
                         ],
                         'mimeTypesMessage' => 'Please upload a valid format JPG or JPEG or PNG image',

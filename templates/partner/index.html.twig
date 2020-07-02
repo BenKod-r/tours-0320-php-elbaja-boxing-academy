@@ -13,7 +13,7 @@
                         <h3 class="partner_title card-title">{{ partner.name }}</h3>
                     </div>
                     <div class="partner_card_image">
-                    {% if partner.poster.slug is defined %}
+                    {% if partner.poster.slug is not empty %}
                         <a class="partner_link_image">
                             <img class="partner_image card-img-top" src="{{ asset ('/images/' ~ partner.poster.slug) }}" alt="Card image cap"  title="Cliquer sur l'image pour en savoir plus !" />
                         </a>
