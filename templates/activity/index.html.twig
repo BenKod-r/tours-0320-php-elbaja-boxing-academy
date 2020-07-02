@@ -5,120 +5,87 @@
 {% block body %}
 <section class="activity">
     <h1 class="activity_h1">Le planning des cours</h1>
-    <div class="content">
-        <div class="container">
+    <div class="cards-list">
 
-            <div class="row red">
-                <div class="blocks-container">
-                    <div class="holder">
-                        <div class="black-block"></div>
-                        <div class="second-block"></div>
-                        <div class="block-details row">
-                            <div class="col-4 block-number align-self-end">
-                                <div class="outer-o">
-                                    <div class="inner-o">
-                                        <span><i class="fa fa-star" aria-hidden="true"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-9 col-md-8 block-description align-self-center">
-                                <h2>LUNDI</h2>
-                                <p>Description of block Description of block Description of block Description of block Description of block Description of block Description of block Description of block.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="activity_card card">
+            <div class="activity_card_image card_image">
+                <img src="{{ asset('build/activity/giphy2.gif') }}" />
             </div>
-
-            <div class="row orange">
-                <div class="blocks-container">
-                    <div class="holder">
-                        <div class="black-block"></div>
-                        <div class="second-block"></div>
-                        <div class="block-details row">
-                            <div class="col-4 block-number align-self-end">
-                                <div class="outer-o">
-                                    <div class="inner-o">
-                                        <span><i class="fa fa-star" aria-hidden="true"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-9 col-md-8 block-description align-self-center">
-                                <h2>MARDI</h2>
-                                <p>Description of block Description of block Description of block Description of block Description of block Description of block Description of block Description of block.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row blue">
-                <div class="blocks-container">
-                    <div class="holder">
-                        <div class="black-block"></div>
-                        <div class="second-block"></div>
-                        <div class="block-details row">
-                            <div class="col-4 block-number align-self-end">
-                                <div class="outer-o">
-                                    <div class="inner-o">
-                                        <span><i class="fa fa-star" aria-hidden="true"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-9 col-md-8 block-description align-self-center">
-                                <h2>MERCREDI</h2>
-                                <p>Description of block Description of block Description of block Description of block Description of block Description of block Description of block Description of block.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row green">
-                <div class="blocks-container">
-                    <div class="holder">
-                        <div class="black-block"></div>
-                        <div class="second-block"></div>
-                        <div class="block-details row">
-                            <div class="col-4 block-number align-self-end">
-                                <div class="outer-o">
-                                    <div class="inner-o">
-                                        <span><i class="fa fa-star" aria-hidden="true"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-9 col-md-8 block-description align-self-center">
-                                <h2>JEUDI</h2>
-                                <p>Description of block Description of block Description of block Description of block Description of block Description of block Description of block Description of block.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row purple">
-                <div class="blocks-container">
-                    <div class="holder">
-                        <div class="black-block"></div>
-                        <div class="second-block"></div>
-                        <div class="block-details row">
-                            <div class="col-4 block-number align-self-end">
-                                <div class="outer-o">
-                                    <div class="inner-o">
-                                        <span><i class="fa fa-star" aria-hidden="true"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-9 col-md-8 block-description align-self-center">
-                                <h2>VENDREDI</h2>
-                                <p>Description of block Description of block Description of block Description of block Description of block Description of block Description of block Description of block.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
-    </div>
-</section>>
+
+        <div class="activity_card card">
+            <div class="activity_card_image card_image">
+                <h2 class="activity_h2">LUNDI</h2>
+                <p>ACCES LIBRE 10H-12H</p>
+                <p>SPORT SENIOR 10H-12H</p>
+                <p>ACCES LIBRE 15H-18H</p>
+                <p>REMISE EN FORME (femme) 18H-19H</p>
+                <p>FITNESS BOXE 19H-20H</p>
+                <p>LADY BOXING (femme) 19H-20H</p>
+                <p>KICKBOXING (K1) 20H-22H</p>
+            </div>
+        </div>
+
+        <div class="activity_card card">
+            <div class="activity_card_image card_image">
+                <h2 class="activity_h2">MARDI</h2>
+                <p>ACCES LIBRE 10H-12H</p>
+                <p>SPORT SENIOR 10H-12H</p>
+                <p>ACCES LIBRE 15H-18H</p>
+                <p>BOXE EDUCATIVE (+10 ans) 18H-20H</p>
+                <p>BOXE ANGLAISE (adulte) 20H-22H</p>
+            </div>
+        </div>
+
+        <div class="activity_card card">
+            <div class="activity_card_image card_image">
+                <h2 class="activity_h2">MERCREDI</h2>
+                <p>ACCES LIBRE 10H-12H</p>
+                <p>SPORT SENIOR 10H-12H</p>
+                <p>BABY BOXE (4-9 ans) 14H-16H</p>
+                <p>ACCES LIBRE 15H-18H</p>
+                <p>MMA 18H-20H</p>
+                <p>KICKBOXING (K1) 20H-22H</p>
+            </div>
+        </div>
+
+        <div class="activity_card card">
+            <div class="activity_card_image card_image">
+                <img src="{{ asset('build/activity/giphy1.gif') }}" />
+            </div>
+        </div>
+
+        <div class="activity_card card">
+            <div class="activity_card_image card_image">
+                <h2 class="activity_h2">JEUDI</h2>
+                <p>ACCES LIBRE 10H-12H</p>
+                <p>SPORT SENIOR 10H-12H</p>
+                <p>ACCES LIBRE 15H-18H</p>
+                <p>REMISE EN FORME (femme) 18H-19H</p>
+                <p>BOXE EDUCATIVE (+10 ans) 18H-20H</p>
+                <p>FITNESS BOXE 19H-20H</p>
+                <p>BOXE ANGLAISE (adulte) 20H-22H</p>
+            </div>
+        </div>
+
+        <div class="activity_card card">
+            <div class="activity_card_image card_image">
+                <h2 class="activity_h2">VENDREDI</h2>
+                <p>ACCES LIBRE 10H-12H</p>
+                <p>SPORT SENIOR 10H-12H</p>
+                <p>ACCES LIBRE 15H-18H</p>
+                <p>BOXE ANGLAISE (adulte) 18H-20H</p>
+                <p>LADY BOXING (femme) 19H-20H</p>
+                <p>MMA 20H-22H</p>
+            </div>
+        </div>
+
+        <div class="activity_card card">
+            <div class="activity_card_join card_image">
+                <h3 class="activity_h3">N'ATTENDEZ-PLUS</h3>
+                <h3 class="activity_h3">REJOIGNEZ-NOUS !</h3>
+            </div>
+        </div>
+
+</section>
 {% endblock %}
