@@ -134,4 +134,13 @@ class User implements UserInterface
         $this->plainPassword = $plainPassword;
         return $this;
     }
+
+    /**
+     * toString
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getUserName();
+    }
 }
