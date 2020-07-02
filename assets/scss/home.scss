@@ -234,6 +234,7 @@
     padding-top: 78px;
     padding-bottom: 78px;
 }
+
 .cta_content
 {
     font-size: 68px;
@@ -241,15 +242,18 @@
     color: #ffffff;
     line-height: 1.2;
 }
+
 .cta_content a
 {
     position: relative;
     color: #1d1f2a;
 }
+
 .cta_content a:hover
 {
     color: #ff5408;
 }
+
 .cta_content a::after
 {
     display: block;
