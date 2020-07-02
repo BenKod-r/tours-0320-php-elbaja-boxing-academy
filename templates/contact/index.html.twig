@@ -1,42 +1,21 @@
 {% extends 'base.html.twig' %}
-
 {% block Title %}Contactez Nous{% endblock %}
+
 {% block body %}
-    <br>
-    <br>
-    <br>
+<div class="contact-body">
+    
+    <h1 class="contact_page_edit_title">Contactez Nous</h1>
+    
+    <div class="container">
+    <div class="contact-form">
     {{ form_start(form) }}
-    {{ form_errors(form) }}
-
-    <div>
-        {{ form_label(form.lastname,'Votre nom')}}
-        {{ form_errors(form.lastname) }}
-        {{ form_widget(form.lastname) }}
-    </div>
-    <div>
-        {{ form_label(form.firstname,'Votre prénom')}}
-        {{ form_errors(form.firstname) }}
-        {{ form_widget(form.firstname) }}
-    </div>
-    <div>
-        {{ form_label(form.email,'Votre email')}}
-        {{ form_errors(form.email) }}
-        {{ form_widget(form.email) }}
-    </div>
-    <div>
-         {{ form_label(form.subject,'Sujet') }}
-         {{ form_errors(form.subject) }}
-         {{ form_widget(form.subject) }}
-    </div>
-    <div>
-        {{ form_label(form.description,'Description') }}
-        {{ form_errors(form.description) }}
-        {{ form_widget(form.description) }}
-    </div>
-
-    <input type="submit" value="Envoyer !">
-
+        {{ form_widget(form) }}
+        <button class="btn btn-success">{{ button_label|default('Sauvegarder') }}</button>
     {{ form_end(form) }}
+    </div>
+    </div>
+</div>
+   
 {% endblock %}
 
 

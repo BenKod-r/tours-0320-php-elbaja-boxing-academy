@@ -1,4 +1,4 @@
-.form{
+.contact-body{
     font-family: "Graduate";
     background-image: url("../images/backgroundEBA.jpg");
     background-repeat: no-repeat;
@@ -6,4 +6,16 @@
     background-position: center;
     background-size: cover;
     padding-bottom: 150px;
+}
+.contact-form{
+    color:$primary-color transparent;
+}
+#contact{
+    margin-top: initial;
+    color:$primary-color transparent;
+}
+.contact_page_edit_title{
+    color: #18f20b;
+    margin: 30px;
+    text-align: center;
 }
