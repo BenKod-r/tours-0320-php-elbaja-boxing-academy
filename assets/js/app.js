@@ -6,7 +6,6 @@
  */
 
 import $ from 'jquery';
-import anime from 'animejs';
 import home from './home';
 
 
