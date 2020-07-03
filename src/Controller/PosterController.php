@@ -64,11 +64,11 @@ class PosterController extends AbstractController
             } catch (ExtensionFileException $e) {
                 $this->addFlash('warning', 'Le format de votre fichier n\'est pas supporté.
                     Votre fichier doit être au format jpeg, jpg ou png.');
-                    return $this->redirectToRoute('poster_new');
+                return $this->redirectToRoute('poster_new');
             } catch (PartialFileException | NoFileException | CannotWriteFileException $e) {
                 $this->addFlash('warning', 'Fichier non enregistré, veuillez réessayer.
                     Si le problème persiste, veuillez contacter un professionnel du web');
-                    return $this->redirectToRoute('poster_new');
+                return $this->redirectToRoute('poster_new');
             }
             $poster->setSlug($posterSlug);
             $entityManager = $this->getDoctrine()->getManager();
