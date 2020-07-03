@@ -6,7 +6,7 @@
  */
 
 import $ from 'jquery';
-import home from './home';
+import anime from './home';
 
 
 // any CSS you require will output into a single css file (app.css in this case)
