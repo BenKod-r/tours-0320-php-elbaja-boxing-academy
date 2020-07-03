@@ -1,4 +1,4 @@
-//function anime() {
+
     anime.timeline({ loop: true })
         .add({
             targets: '.ml15 .word',
@@ -14,4 +14,3 @@
             easing: 'easeOutExpo',
             delay: 1000,
         });
-//}
