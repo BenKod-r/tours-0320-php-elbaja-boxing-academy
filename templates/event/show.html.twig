@@ -8,7 +8,7 @@
             <h1 class="event_show_page_title">{{ event.name }}</h1>
         </div>
         <div class="event_show_content d-flex">
-        {% if event.poster.slug is not empty %}
+        {% if event.poster is not empty %}
             <img class="col-12 col-lg-4" src="{{ asset ('/images/' ~ event.poster.slug ) }}" />
         {% endif %}
             <div class="event_show_text">
