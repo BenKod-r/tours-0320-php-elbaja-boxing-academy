@@ -1,4 +1,4 @@
-/*global animation, anime*/
+/* global animation, anime */
 const animation = anime.timeline({ loop: true })
     .add({
         targets: '.ml15 .word',
