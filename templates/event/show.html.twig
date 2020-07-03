@@ -11,7 +11,7 @@
         {% if event.poster is not empty %}
             <img class="col-12 col-lg-4" src="{{ asset ('/images/' ~ event.poster.slug ) }}" />
         {% endif %}
-            <div class="event_show_text">
+            <div class="event_show_text text-justify">
                 <p>{{ event.description }}</p>
                 <p>Date : {{ event.startDate ? event.startDate|localizeddate('none', 'none',null ,null , 'EEEE dd MMMM yyyy') }}</p>
                 {% if event.endDate is not empty %}
