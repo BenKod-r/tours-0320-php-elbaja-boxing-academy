@@ -280,39 +280,40 @@
 /*---------------------
       Join Us
 -----------------------*/
-.callto-area {
-    background: url(../images/home/home_join_us.jpg) center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    text-align: center;
-    font-family:"Graduate";
-    margin : 2em;
+.cta
+{
+    background: #ff9908;
+    padding-top: 78px;
+    padding-bottom: 78px;
 }
 
-.callto-area .call-wrap {
+.cta_content
+{
+    font-size: 68px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.cta_content a
+{
     position: relative;
+    color: #1d1f2a;
 }
 
-.callto-area h1 {
-    color: #fff;
-    text-align: center;
+.cta_content a:hover
+{
+    color: #ff5408;
 }
 
-.callto-area p {
-    max-width: 850px;
-    color: #fff;
-    margin: 30px;
-}
-
-.callto-area .overlay-bg {
-    background: rgba(0, 0, 0, 0.5);
-}
-
-.callto-area .primary-btn:hover {
-    background: #fff;
-    color: #f6214b;
-}
-
-.button {
-    padding-bottom : 3em;
+.cta_content a::after
+{
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 100%;
+    height: 5px;
+    background: #ff5408;
+    content: '';
 }
