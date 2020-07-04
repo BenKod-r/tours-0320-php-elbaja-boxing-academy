@@ -6,8 +6,11 @@
     background: url(../images/home/home_boxeur_banner.jpg) right;
     background-size: cover;
     font-family: "Graduate";
-    padding: 5em;
+    padding: 3em;
     height : 550px;
+    display: grid;
+    justify-items: center;
+    justify-content: center;
 }
 
 .banner-area .overlay-bg {
@@ -20,11 +23,7 @@
     }
 }
 
-.banner-content {
-    text-align: left;
-}
-
-.banner-content .banner-area-h2 {
+.banner-area-h2 {
     font-size: 60px;
     font-weight: 700;
     line-height: 1em;
@@ -33,20 +32,30 @@
 }
 
 @media (max-width: 991.98px) {
-    .banner-content .banner-area-h2 {
+    .banner-area-h2 {
         font-size: 50px;
     }
 }
 
 @media (max-width: 1199.98px) {
-    .banner-content .banner-area-h2{
+    .banner-area-h2 {
         font-size: 50px;
     }
 }
 
 @media (max-width: 480px) {
-    .banner-content .banner-area-h2 {
+    .banner-area-h2 {
         font-size: 35px;
+    }
+
+    .word{
+        font-size: 0.8em;
+        letter-spacing: 0.1em;
+        text-align : center;
+    }
+
+    .ml15{
+        line-height: 0.1em;
     }
 }
 
@@ -206,6 +215,9 @@
 @media only screen and (max-width : 500px) {
     .quote-author-image{
         display:none;
+    }
+    .president_section{
+
     }
 }
 
