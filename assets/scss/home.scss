@@ -137,6 +137,15 @@
     margin-top: 8px;
 }
 
+@media only screen and (max-width : 500px) {
+    .choseus_h2{
+        display: grid;
+        justify-items: center;
+        justify-content: center;
+    }
+}
+
+
 /*---------------------
       President
 -----------------------*/
@@ -213,11 +222,14 @@
 
 // Président Photo
 @media only screen and (max-width : 500px) {
-    .quote-author-image{
-        display:none;
+    .quote-card {
+        width: 330px;
     }
     .president_section{
-
+        display: grid;
+        justify-items: center;
+        justify-content: center;
+        text-justify:center;
     }
 }
 
