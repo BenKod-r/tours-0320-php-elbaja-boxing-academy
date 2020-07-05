@@ -284,83 +284,117 @@
       Trainers
 -----------------------*/
 
-.trainer-area {
+/* Trainers Section */
+
+.trainers-section {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
     background-color: white;
     font-family:"Graduate";
-    padding : 2em;
+}
 
-    h1 {
-        color : $primary-color;
+.trainers-section .container trainers_h1 {
+    font-size: 24px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    font-weight: 900;
+    margin-bottom: 30px;
+    color: #000;
+}
 
-    }
+.trainers-section .container {
+    margin-bottom: 1.5em;
+    font-size: 20px;
+    color: #848484;
+}
 
-    .single-trainer {
-        padding: 10px;
-  }
+/* Trainers Portraits */
 
-    .thumb {
-        position: relative;
-  }
+.trainers-ctn .trainer {
+    width: 94%;
+    max-width: 342px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
 
-    .thumb div {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background-color: rgba($primary-color, .8);
-        color: #fff;
-        opacity: 0;
-        transition: opacity 0.5s;
+    background-color:#C0C0C0;
+    padding:5px;
+    box-shadow:2px 2px 2px gray,
+    -1px -1px 2px white;
+}
 
-        i {
-            color: #fff;
-            font-size: 20px;
-            padding: 10px;
-            z-index: 2;
-    }
-  }
+.trainers-ctn .trainer1, .trainers-ctn .trainer2, .trainers-ctn .trainer3 {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 450px;
+    position: relative;
+}
 
-    .thumb img {
-        display: block;
-        width: 100%;
-  }
+.trainers-ctn .trainer1 {
+    background-image: url(../images/coach/barbara.jpg);
+    margin: 0 auto 30px auto;
+}
 
-    .thumb div span {
-        display: block;
-        position: absolute;
-        bottom: 30px;
-        left: 20px;
-        text-transform: uppercase;
-        font-size: 18px;
-        font-weight: 600;
-        letter-spacing: 3px;
-  }
+.trainers-ctn .trainer2 {
+    background-image: url(../images/coach/nedjid.jpg);
+    margin: 0 auto 30px auto;
+}
 
-    .thumb div p {
-        display: block;
-        position: absolute;
-        bottom: 10px;
-        left: 20px;
-        font-weight: 100;
-        @media(max-width: 768px) {
-            bottom: -15px;
-    }
-  }
+.trainers-ctn .trainer3 {
+    background-image: url(../images/coach/rachid.jpg);
+    margin: 0 auto 30px auto;
+}
 
-    .thumb a i {
-        color: rgba(#fff, .3);
-        @include transition();
+.trainers-section {
+    text-align: center;
+    padding-top: 90px;
+    padding-bottom: 90px;
 
-        &:hover {
-            color: white;
-    }
-  }
+}
 
-    .thumb:hover div {
-        opacity: 1;
-        cursor: pointer;
-  }
+/* Trainers Overlay */
+
+.trainer {
+    overflow: hidden;
+}
+
+.trainer-details {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.trainer .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding-top: 800px;
+    transition: all 0.5s ease;
+}
+
+.trainer .overlay:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-top: 80px;
+    transition: all 0.5s ease;
+}
+
+.overlay .trainer-details .trainers_details_h3 {
+    color: #fff;
+    font-size: 30px;
+}
+
+.overlay .trainer-details span {
+    color: #fff;
+}
+
+.overlay .trainer-details i {
+    padding: 10px;
+    margin-right: 5px;
+    background-color: #fff;
+    color: #000;
+    display: inline-block;
 }
 
 /*---------------------
