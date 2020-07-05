@@ -288,10 +288,10 @@
 
 .trainers-section {
     text-align: center;
-    padding-top: 50px;
-    padding-bottom: 50px;
     background-color: white;
     font-family:"Graduate";
+    padding-top: 30px;
+    padding-bottom: 20px;
 }
 
 .trainers-section .container trainers_h1 {
@@ -310,6 +310,10 @@
     color: #848484;
 }
 
+.trainers-ctn{
+    padding : 2em;
+}
+
 /* Trainers Portraits */
 
 .trainers-ctn .trainer {
@@ -318,7 +322,6 @@
     margin-bottom: 30px;
     position: relative;
     overflow: hidden;
-
     background-color:#C0C0C0;
     padding:5px;
     box-shadow:2px 2px 2px gray,
@@ -346,13 +349,6 @@
 .trainers-ctn .trainer3 {
     background-image: url(../images/coach/rachid.jpg);
     margin: 0 auto 30px auto;
-}
-
-.trainers-section {
-    text-align: center;
-    padding-top: 90px;
-    padding-bottom: 90px;
-
 }
 
 /* Trainers Overlay */
