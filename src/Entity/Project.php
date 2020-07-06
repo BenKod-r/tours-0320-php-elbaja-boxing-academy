@@ -38,7 +38,7 @@ class Project
     private $dateEnd;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity=Poster::class, inversedBy="projects")
      */
     private $poster;
 
@@ -95,12 +95,12 @@ class Project
         return $this;
     }
 
-    public function getPoster(): ?string
+    public function getPoster(): ?Poster
     {
         return $this->poster;
     }
 
-    public function setPoster(?string $poster): self
+    public function setPoster(?Poster $poster): self
     {
         $this->poster = $poster;
 

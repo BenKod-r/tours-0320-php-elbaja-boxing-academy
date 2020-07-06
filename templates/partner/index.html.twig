@@ -4,7 +4,7 @@
 
 {% block body %}
     <section class="partner">
-        <h1 class="partner_page">Nos partenaires</h1>
+        <h1 class="partner_page">PARTENAIRES</h1>
         <div class="partner_card row justify-content-around">
         {% for partner in partners %}
             <div class="partner_deck d-flex card-deck col-xs-12 col-md-6 col-xl-4">
@@ -13,7 +13,11 @@
                         <h3 class="partner_title card-title">{{ partner.name }}</h3>
                     </div>
                     <div class="partner_card_image">
-                        <a class="partner_link_image"><img class="partner_image card-img-top" src="{{ asset( partner.poster ) }}" alt="Card image cap"  title="Cliquer sur l'image pour en savoir plus !" /></a>
+                    {% if partner.poster is not empty %}
+                        <a class="partner_link_image">
+                            <img class="partner_image card-img-top" src="{{ asset ('/images/' ~ partner.poster.slug) }}" alt="Card image cap"  title="Cliquer sur l'image pour en savoir plus !" />
+                        </a>
+                    {% endif %}
                     </div>
                 </div>
             </div>
