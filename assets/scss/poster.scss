@@ -1,0 +1,56 @@
+.poster_index,
+.poster_page_new {
+    font-family: "Graduate";
+    background-image: url("../images/backgroundEBA.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 50px;
+}
+
+.poster_title {
+    background-color: black;
+    text-align: center;
+    color: $primary-color;
+}
+
+.poster_title h1 {
+    padding-top: 50px;
+}
+
+.poster_link {
+    display: flex;
+    justify-content: flex-end;
+    padding: 4%;
+}
+
+.poster_figure {
+    margin: 10px;
+}
+
+.poster_figure figure {
+    border: $primary-color solid;
+    display: flex;
+    flex-flow: column;
+    margin: auto;
+    margin-bottom: 10px;
+    max-width: 350px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.poster_figure img {
+    height: 400px;
+}
+
+.poster_figure figcaption {
+    height: 50px;
+    background-color:#222;
+    color:#fff;
+    text-align: center;
+}
+
+.poster_page_new {
+    padding-top: 70px;
+}

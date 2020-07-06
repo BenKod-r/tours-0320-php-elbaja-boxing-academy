@@ -6,8 +6,11 @@
     background: url(../images/home/home_boxeur_banner.jpg) right;
     background-size: cover;
     font-family: "Graduate";
-    padding: 5em;
+    padding: 3em;
     height : 550px;
+    display: grid;
+    justify-items: center;
+    justify-content: center;
 }
 
 .banner-area .overlay-bg {
@@ -20,11 +23,7 @@
     }
 }
 
-.banner-content {
-    text-align: left;
-}
-
-.banner-content .banner-area-h2 {
+.banner-area-h2 {
     font-size: 60px;
     font-weight: 700;
     line-height: 1em;
@@ -33,21 +32,46 @@
 }
 
 @media (max-width: 991.98px) {
-    .banner-content .banner-area-h2 {
+    .banner-area-h2 {
         font-size: 50px;
     }
 }
 
 @media (max-width: 1199.98px) {
-    .banner-content .banner-area-h2{
+    .banner-area-h2 {
         font-size: 50px;
     }
 }
 
 @media (max-width: 480px) {
-    .banner-content .banner-area-h2 {
+    .banner-area-h2 {
         font-size: 35px;
     }
+
+    .word{
+        font-size: 0.8em;
+        letter-spacing: 0.1em;
+        text-align : center;
+    }
+
+    .ml15{
+        line-height: 0.1em;
+    }
+}
+
+/* JAVASCRIPT BANNER */
+
+.ml15 {
+    font-weight: 800;
+    font-size: 3.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+}
+
+.ml15 .word {
+    display: inline-block;
+    line-height: 1em;
+    color : white;
 }
 
 /*---------------------
@@ -111,6 +135,62 @@
     font-weight: 600;
     text-transform: uppercase;
     margin-top: 8px;
+}
+
+@media only screen and (max-width : 500px) {
+    .choseus_h2{
+        display: grid;
+        justify-items: center;
+        justify-content: center;
+    }
+}
+
+/* ICON EFFECT */
+
+/* ICON : PULSE */
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+
+    50% {
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
+    }
+
+    100% {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+
+    50% {
+        -webkit-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        transform: scale(0.8);
+    }
+
+    100% {
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+}
+
+.faa-pulse.animated,
+.faa-pulse.animated-hover:hover,
+.faa-parent.animated-hover:hover > .faa-pulse {
+    -webkit-animation: pulse 2s linear infinite;
+    animation: pulse 2s linear infinite;
 }
 
 /*---------------------
@@ -189,8 +269,15 @@
 
 // Président Photo
 @media only screen and (max-width : 500px) {
-    .quote-author-image{
-        display:none;
+    .quote-card {
+        width: 330px;
+    }
+
+    .president_section{
+        display: grid;
+        justify-items: center;
+        justify-content: center;
+        text-justify:center;
     }
 }
 
@@ -198,83 +285,113 @@
       Trainers
 -----------------------*/
 
-.trainer-area {
+/* Trainers Section */
+
+.trainers-section {
+    text-align: center;
     background-color: white;
     font-family:"Graduate";
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.trainers-section .container trainers_h1 {
+    font-size: 24px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    font-weight: 900;
+    margin-bottom: 30px;
+    color: #000;
+}
+
+.trainers-section .container {
+    margin-bottom: 1.5em;
+    font-size: 20px;
+    color: #848484;
+}
+
+.trainers-ctn{
     padding : 2em;
+}
 
-    h1 {
-        color : $primary-color;
+/* Trainers Portraits */
 
-    }
+.trainers-ctn .trainer {
+    width: 94%;
+    max-width: 342px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    background-color:#C0C0C0;
+    padding:5px;
+    box-shadow:2px 2px 2px gray,
+    -1px -1px 2px white;
+}
 
-    .single-trainer {
-        padding: 10px;
-  }
+.trainers-ctn .trainer1, .trainers-ctn .trainer2, .trainers-ctn .trainer3 {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 450px;
+    position: relative;
+}
 
-    .thumb {
-        position: relative;
-  }
+.trainers-ctn .trainer1 {
+    background-image: url(../images/coach/barbara.jpg);
+    margin: 0 auto 30px auto;
+}
 
-    .thumb div {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background-color: rgba($primary-color, .8);
-        color: #fff;
-        opacity: 0;
-        transition: opacity 0.5s;
+.trainers-ctn .trainer2 {
+    background-image: url(../images/coach/nedjid.jpg);
+    margin: 0 auto 30px auto;
+}
 
-        i {
-            color: #fff;
-            font-size: 20px;
-            padding: 10px;
-            z-index: 2;
-    }
-  }
+.trainers-ctn .trainer3 {
+    background-image: url(../images/coach/rachid.jpg);
+    margin: 0 auto 30px auto;
+}
 
-    .thumb img {
-        display: block;
-        width: 100%;
-  }
+/* Trainers Overlay */
 
-    .thumb div span {
-        display: block;
-        position: absolute;
-        bottom: 30px;
-        left: 20px;
-        text-transform: uppercase;
-        font-size: 18px;
-        font-weight: 600;
-        letter-spacing: 3px;
-  }
+.trainer {
+    overflow: hidden;
+}
 
-    .thumb div p {
-        display: block;
-        position: absolute;
-        bottom: 10px;
-        left: 20px;
-        font-weight: 100;
-        @media(max-width: 768px) {
-            bottom: -15px;
-    }
-  }
+.trainer-details {
+    width: 90%;
+    margin: 0 auto;
+}
 
-    .thumb a i {
-        color: rgba(#fff, .3);
-        @include transition();
+.trainer .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding-top: 800px;
+    transition: all 0.5s ease;
+}
 
-        &:hover {
-            color: white;
-    }
-  }
+.trainer .overlay:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-top: 80px;
+    transition: all 0.5s ease;
+}
 
-    .thumb:hover div {
-        opacity: 1;
-        cursor: pointer;
-  }
+.overlay .trainer-details .trainers_details_h3 {
+    color: #fff;
+    font-size: 30px;
+}
+
+.overlay .trainer-details span {
+    color: #fff;
+}
+
+.overlay .trainer-details i {
+    padding: 10px;
+    margin-right: 5px;
+    background-color: #fff;
+    color: #000;
+    display: inline-block;
 }
 
 /*---------------------
@@ -293,6 +410,16 @@
     font-weight: 700;
     color: #ffffff;
     line-height: 1.2;
+}
+
+#cours{
+    animation: cours 1s infinite;
+}
+
+@keyframes cours{
+    0%{opacity: 1;}
+    50%{opacity: 0;}
+    100%{opacity: 1;}
 }
 
 .cta_content a
@@ -316,4 +443,8 @@
     height: 5px;
     background: #ff5408;
     content: '';
+}
+
+a{
+    text-decoration: none;
 }
