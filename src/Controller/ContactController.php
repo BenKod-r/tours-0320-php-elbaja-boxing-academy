@@ -19,12 +19,19 @@ class ContactController extends AbstractController
      * @Route("/contact",name="contact_index",  methods={"GET","POST"})
      * @return Response A reponse instance
      */
-    public function contact(Request $request, MailerInterface $mailer, Contact $contact): Response
+    public function contact(Request $request, MailerInterface $mailer): Response
     {
+        $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $contact->getLastname();
+            $contact->getFirstname();
+            $contact->getEmail();
+            $contact->getSubject();
+            $contact->getDescription();
+
             $email = (new Email())
                 ->from($this->getParameter('mailer_from'))
                 ->to($this->getParameter('mailer_to'))
