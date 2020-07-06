@@ -28,7 +28,7 @@ class Partner
     private $decription;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity=Poster::class, inversedBy="partners")
      */
     private $poster;
 
@@ -61,12 +61,12 @@ class Partner
         return $this;
     }
 
-    public function getPoster(): ?string
+    public function getPoster(): ?Poster
     {
         return $this->poster;
     }
 
-    public function setPoster(string $poster): self
+    public function setPoster(?Poster $poster): self
     {
         $this->poster = $poster;
 
