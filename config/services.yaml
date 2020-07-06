@@ -7,6 +7,7 @@ parameters:
     locale: 'en'
     mailer_from: '%env(resolve:MAILER_FROM_ADDRESS)%'
     mailer_to: '%env(resolve:MAILER_TO_ADDRESS)%'
+    upload_directory: '%kernel.project_dir%/public/images'
 
 services:
     # default configuration for services in *this* file
@@ -28,4 +29,8 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Service\FileUploader:
+        arguments:
+            $targetDirectory: '%upload_directory%'
 
