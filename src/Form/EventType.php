@@ -26,10 +26,6 @@ class EventType extends AbstractType
                 ]
             ])
             ->add('location', TextType::class)
-            ->add('poster', EntityType::class, [
-                'class' => Poster::class,
-                'choice_label' => 'slug',
-            ])
         ;
     }
 
