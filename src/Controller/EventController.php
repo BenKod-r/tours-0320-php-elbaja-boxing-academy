@@ -24,7 +24,6 @@ class EventController extends AbstractController
 {
     /**
      * Returns all events
-     * 
      * @Route("/", name="event_index", methods={"GET"})
      */
     public function index(EventRepository $eventRepository): Response
@@ -36,7 +35,6 @@ class EventController extends AbstractController
 
     /**
      * Returns a form to create an event and redirection to choose a poster
-     * 
      * @Route("/new", name="event_new", methods={"GET","POST"})
      * @IsGranted("ROLE_ADMIN")
      */
@@ -62,7 +60,6 @@ class EventController extends AbstractController
 
     /**
      * List of all posters, choice of a poster for an event
-     * 
      * @Route("/new/{id}", name="event_poster_index", methods={"GET","POST"})
      * @IsGranted("ROLE_ADMIN")
      */
@@ -76,7 +73,6 @@ class EventController extends AbstractController
 
     /**
      * Add a poster to an event and redirection to list of poster
-     * 
      * @Route("/new/{event}/poster/{poster}", name="event_new_poster", methods={"GET","POST"})
      * @IsGranted("ROLE_ADMIN")
      */
@@ -91,7 +87,6 @@ class EventController extends AbstractController
 
     /**
      * Return an event
-     * 
      * @Route("/{id}", name="event_show", methods={"GET"})
      */
     public function show(Event $event): Response
@@ -103,7 +98,6 @@ class EventController extends AbstractController
 
     /**
      * Returns an event and a form to edit the event
-     * 
      * @Route("/{id}/edit", name="event_edit", methods={"GET","POST"},requirements={"id": "\d+"})
      * @IsGranted("ROLE_ADMIN")
      */
@@ -126,7 +120,6 @@ class EventController extends AbstractController
 
     /**
      * Delete an event
-     * 
      * @Route("/{id}", name="event_delete", methods={"DELETE"})
      * @IsGranted("ROLE_ADMIN")
      */
