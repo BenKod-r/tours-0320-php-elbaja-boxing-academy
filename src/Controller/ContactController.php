@@ -11,6 +11,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Bundle\FrameworkBundle\Controller\ControllerTrait;
+use Symfony\Component\Mime\Address;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use Symfony\Component\Mailer\Mailer;
 
 class ContactController extends AbstractController
 {
@@ -26,15 +29,9 @@ class ContactController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $contact->getLastname();
-            $contact->getFirstname();
-            $contact->getEmail();
-            $contact->getSubject();
-            $contact->getDescription();
-
-            $email = (new Email())
+            $email = (new templatedEmail())
                 ->from($this->getParameter('mailer_from'))
-                ->to($this->getParameter('mailer_to'))
+                ->to(new Address($this->getParameter('mailer_to')))
                 ->subject("Vous avez reçu un email d'un visiteur !")
                 ->html($this->renderView('contact/mail.html.twig', [
                     'contact' => $contact
