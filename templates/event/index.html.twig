@@ -7,12 +7,13 @@
     <section class="event text-white">
         <div class="event_page">
             <h1 class="event_page_title">ÉVÈNEMENTS</h1>
-        </div>
-        <div class="event_link">
+            <div class="event_link">
             {% if app.user %}
                 <a class="event_btn btn btn-success" href="{{ path('event_new') }}">Créer un évènement</a>
             {% endif %}
+            </div>
         </div>
+        
         <div class="event_card row justify-content-around">
         {% for event in events %}
             <div class="event_deck card-deck col-sm-12 col-lg-6 col-xl-4">
