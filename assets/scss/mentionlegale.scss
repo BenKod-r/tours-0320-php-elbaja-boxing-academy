@@ -5,18 +5,25 @@
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
-    padding-bottom: 150px;
 }
-h2{
+.mention_title{
+    background-color: black;
+    text-justify: auto;
+
+}
+.mentionlegal h2{
     font-size: 5rem;
     text-align: center;
     align-content: center;
     color: red;
-    margin-top: 20px;
+    text-justify: auto;
+    padding-top: 50px;
 }
-p{
-    color: $primary-color;
+.mentionlegal p{
+    color: white;
+    text-justify: auto;
 }
-h3{
+.mentionlegal h3{
     color: red;
+    text-justify: auto;
 }
