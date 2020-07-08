@@ -7,7 +7,7 @@
 
 import $ from 'jquery';
 import anime from './home';
-import upload from './poster';
+
 
 
 // any CSS you require will output into a single css file (app.css in this case)
