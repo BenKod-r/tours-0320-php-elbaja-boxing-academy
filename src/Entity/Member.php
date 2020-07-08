@@ -30,7 +30,7 @@ class Member
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $function;
+    private $category;
 
     /**
      * @ORM\Column(type="text")
@@ -72,14 +72,14 @@ class Member
         return $this;
     }
 
-    public function getFunction(): ?string
+    public function getCategory(): ?string
     {
-        return $this->function;
+        return $this->category;
     }
 
-    public function setFunction(string $function): self
+    public function setCategory(string $category): self
     {
-        $this->function = $function;
+        $this->category = $category;
 
         return $this;
     }
