@@ -29,7 +29,7 @@ class EventController extends AbstractController
     public function index(EventRepository $eventRepository): Response
     {
         return $this->render('event/index.html.twig', [
-            'events' => $eventRepository->findBy([], ['id' => 'desc']),
+            'events' => $eventRepository->findBy([], ['date' => 'desc']),
         ]);
     }
 
@@ -66,7 +66,7 @@ class EventController extends AbstractController
     public function choicePoster(Event $event, PosterRepository $posterRepository): Response
     {
         return $this->render('event/poster.html.twig', [
-            'posters' => $posterRepository->findBy([], ['id' => 'desc']),
+            'posters' => $posterRepository->findBy([], ['date' => 'desc']),
             'event' => $event,
         ]);
     }

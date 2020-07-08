@@ -36,7 +36,7 @@ class PosterController extends AbstractController
     public function index(PosterRepository $posterRepository): Response
     {
         return $this->render('poster/index.html.twig', [
-            'posters' => $posterRepository->findBy([], ['id' => 'desc']),
+            'posters' => $posterRepository->findBy([], ['date' => 'desc']),
         ]);
     }
 
