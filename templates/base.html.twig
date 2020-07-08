@@ -23,6 +23,7 @@
     {% block footer %}
         {% include "footer.html.twig" %}
         <script src="../lib/anime.min.js"></script>
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
     {% endblock %}
     {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
