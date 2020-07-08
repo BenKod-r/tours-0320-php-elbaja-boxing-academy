@@ -30,22 +30,20 @@ use Symfony\Component\HttpFoundation\File\Exception\PartialFileException;
 class PosterController extends AbstractController
 {
     /**
-    *@Route("/", name="poster_index", methods={"GET"})
-    *
-    *Returns all images in the library
-    */
+     * Returns all images in the library
+     * @Route("/", name="poster_index", methods={"GET"})
+     */
     public function index(PosterRepository $posterRepository): Response
     {
         return $this->render('poster/index.html.twig', [
-            'posters' => $posterRepository->findAll(),
+            'posters' => $posterRepository->findBy([], ['date' => 'desc']),
         ]);
     }
 
     /**
-     *@Route("/new", name="poster_new", methods={"GET","POST"})
-     *@IsGranted("ROLE_ADMIN")
-     *
      * Upload image to library, add unique name
+     * @Route("/new", name="poster_new", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function new(Request $request, FileUploader $fileUploader): Response
     {
@@ -84,10 +82,9 @@ class PosterController extends AbstractController
     }
 
     /**
-     *@Route("/{id}", name="poster_delete", methods={"DELETE"})
-     *@IsGranted("ROLE_ADMIN")
-     *
      * Delete an image and its related object
+     * @Route("/{id}", name="poster_delete", methods={"DELETE"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Poster $poster): Response
     {
