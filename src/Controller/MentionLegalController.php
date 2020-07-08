@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class MentionLegalController extends AbstractController
 {
     /**
-     * Association page display
+     * Mention Legal page display
      * @Route("/mentionlegale",name="mentionlegale_index")
      * @return Response A response instance
      */
