@@ -24,13 +24,6 @@ class ProjectType extends AbstractType
                  'required'=> true,
                  'widget' => 'single_text'
             ])
-            ->add('dateEnd', DateType::class, [
-                  'required'=> false,
-                  'widget' => 'single_text'
-            ])
-            ->add('poster', TextType::class, [
-                'required'=> false
-            ])
         ;
     }
 

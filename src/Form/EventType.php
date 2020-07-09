@@ -8,7 +8,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
-use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class EventType extends AbstractType
@@ -24,14 +23,7 @@ class EventType extends AbstractType
                     'hour' => 'Heure', 'minute' => 'Minute',
                 ]
             ])
-            ->add('endDate', DateTimeType::class, [
-                'placeholder' => [
-                    'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour',
-                    'hour' => 'Heure', 'minute' => 'Minute',
-                ]
-            ])
             ->add('location', TextType::class)
-            ->add('poster', TextType::class)
         ;
     }
 

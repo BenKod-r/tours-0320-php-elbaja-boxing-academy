@@ -30,32 +30,18 @@ class Member
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $mail;
+    private $category;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="text")
      */
-    private $phone;
+    private $description;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="datetime")
      */
-    private $address;
+    private $date;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $zipcode;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $city;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $birthday;
 
     public function getId(): ?int
     {
@@ -86,74 +72,38 @@ class Member
         return $this;
     }
 
-    public function getMail(): ?string
+    public function getCategory(): ?string
     {
-        return $this->mail;
+        return $this->category;
     }
 
-    public function setMail(string $mail): self
+    public function setCategory(string $category): self
     {
-        $this->mail = $mail;
+        $this->category = $category;
 
         return $this;
     }
 
-    public function getPhone(): ?int
+    public function getDescription(): ?string
     {
-        return $this->phone;
+        return $this->description;
     }
 
-    public function setPhone(int $phone): self
+    public function setDescription(string $description): self
     {
-        $this->phone = $phone;
+        $this->description = $description;
 
         return $this;
     }
 
-    public function getAddress(): ?string
+    public function getDate(): ?\DateTimeInterface
     {
-        return $this->address;
+        return $this->date;
     }
 
-    public function setAddress(string $address): self
+    public function setDate(\DateTimeInterface $date): self
     {
-        $this->address = $address;
-
-        return $this;
-    }
-
-    public function getZipcode(): ?int
-    {
-        return $this->zipcode;
-    }
-
-    public function setZipcode(int $zipcode): self
-    {
-        $this->zipcode = $zipcode;
-
-        return $this;
-    }
-
-    public function getCity(): ?string
-    {
-        return $this->city;
-    }
-
-    public function setCity(string $city): self
-    {
-        $this->city = $city;
-
-        return $this;
-    }
-
-    public function getBirthday(): ?int
-    {
-        return $this->birthday;
-    }
-
-    public function setBirthday(?int $birthday): self
-    {
-        $this->birthday = $birthday;
+        $this->date = $date;
 
         return $this;
     }

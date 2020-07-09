@@ -20,7 +20,7 @@
                                                     <li class="nav-item"><a href="{{ path('project_index') }}" class="nav-link text-small pb-0">DECOUVRIR</a></li>
                                                     {% if app.user %}
                                                         <li class="nav-item"><a href="{{ path('project_new') }}" class="nav-link text-small pb-0 ">AJOUTER</a></li>
-                                                    {%endif%}
+                                                    {% endif %}
                                                 </ul>
                                             </div>
                                             <div class="col-sm-6 col-lg-3 mb-4">
@@ -29,21 +29,25 @@
                                                     <li class="nav-item"><a href="{{ path('hall_index') }}" class="nav-link text-small pb-0 ">DECOUVRIR</a></li>
                                                 </ul>
                                             </div>
+
                                             <div class="col-sm-6 col-lg-3 mb-4">
-                                                <h6 class="font-weight-bold text-uppercase">Heading 3</h6>
+                                                <h6 class="font-weight-bold text-uppercase">MEDIAS</h6>
                                                 <ul class="list-unstyled">
-                                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Unique Features</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Image Responsive</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Auto Carousel</a></li>
-                                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Newsletter Form</a></li>
+                                                    <li class="nav-item"><a href="{{ path('poster_index') }}" class="nav-link text-small pb-0 ">DECOUVRIR</a></li>
+                                                {% if app.user %}
+                                                    <li class="nav-item"><a href="{{ path('poster_new') }}" class="nav-link text-small pb-0 ">AJOUTER</a></li>
+                                                {% endif %}
                                                 </ul>
                                             </div>
+
                                             <div class="col-sm-6 col-lg-3 mb-4">
                                                 <h6 class="font-weight-bold text-uppercase">ACTIVITES</h6>
                                                 <ul class="list-unstyled">
                                                     <li class="nav-item"><a href="{{ path('activity_index') }}" class="nav-link text-small pb-0 ">DECOUVRIR</a></li>
+                                                    <li class="nav-item"><a href="{{ path('press_index') }}" class="nav-link text-small pb-0 ">ON PARLE DE NOUS</a></li>
                                                 </ul>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -55,7 +59,7 @@
                 <li class="nav-item"><a href="{{ path('event_index') }}" class="nav-link font-weight-bold text-uppercase">Evenements</a></li>
                 <li class="nav-item"><a href="{{ path('prince_index') }}" class="nav-link font-weight-bold text-uppercase">Les Princes du Ring</a></li>
                 <li class="nav-item"><a href="{{ path('partner_index') }}" class="nav-link font-weight-bold text-uppercase">Partenaires</a></li>
-                <li class="nav-item"><a href="" class="nav-link font-weight-bold text-uppercase">Contact</a></li>
+                <li class="nav-item"><a href="{{ path('contact_index') }}" class="nav-link font-weight-bold text-uppercase">Contact</a></li>
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">
                 <li class="nav-item">

@@ -1,5 +1,6 @@
 ###> vs.code/history ###
 /.history
+###< vs.code/history ###
 
 ###> symfony/framework-bundle ###
 /.env.local
@@ -34,3 +35,7 @@
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+
+###> symfony/upload images ###
+/public/images/
+###< symfony/upload images ###

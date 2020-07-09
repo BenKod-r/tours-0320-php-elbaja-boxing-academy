@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Project;
+use App\Entity\Poster;
+use App\Repository\PosterRepository;
 use App\Form\ProjectType;
 use App\Repository\ProjectRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,16 +19,18 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 class ProjectController extends AbstractController
 {
     /**
+     * Returns all projects
      * @Route("/", name="project_index", methods={"GET"})
      */
     public function index(ProjectRepository $projectRepository): Response
     {
         return $this->render('project/index.html.twig', [
-            'projects' => $projectRepository->findAll(),
+            'projects' => $projectRepository->findBy([], ['date' => 'desc']),
         ]);
     }
 
     /**
+     * Returns a form to create a project and redirection to choose a poster
      * @Route("/new", name="project_new", methods={"GET","POST"})
      * @IsGranted("ROLE_ADMIN")
      */
@@ -41,7 +45,7 @@ class ProjectController extends AbstractController
             $entityManager->persist($project);
             $entityManager->flush();
 
-            return $this->redirectToRoute('project_index');
+            return $this->redirectToRoute('project_poster_index', ['id' => $project->getId()]);
         }
 
         return $this->render('project/new.html.twig', [
@@ -51,6 +55,34 @@ class ProjectController extends AbstractController
     }
 
     /**
+     * List of all posters, choice of a poster for a project
+     * @Route("/new/{id}", name="project_poster_index", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
+     */
+    public function choicePoster(Project $project, PosterRepository $posterRepository): Response
+    {
+        return $this->render('project/poster.html.twig', [
+            'posters' => $posterRepository->findBy([], ['date' => 'desc']),
+            'project' => $project,
+        ]);
+    }
+
+    /**
+     * Add a poster to a project and redirection to list of project
+     * @Route("/new/{project}/poster/{poster}", name="project_new_poster", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
+     */
+    public function addPoster(Project $project, Poster $poster): Response
+    {
+        $project->setPoster($poster);
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->flush();
+        
+        return $this->redirectToRoute('project_index');
+    }
+
+    /**
+     * Return a project
      * @Route("/{id}", name="project_show", methods={"GET"})
      */
     public function show(Project $project): Response
@@ -61,6 +93,7 @@ class ProjectController extends AbstractController
     }
 
     /**
+     * Returns a project and a form to edit the project
      * @Route("/{id}/edit", name="project_edit", methods={"GET","POST"},requirements={"id": "\d+"})
      * @IsGranted("ROLE_ADMIN")
      */
@@ -82,6 +115,7 @@ class ProjectController extends AbstractController
     }
 
     /**
+     * Delete a project
      * @Route("/{id}", name="project_delete", methods={"DELETE"})
      * @IsGranted("ROLE_ADMIN")
      */

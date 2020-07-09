@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\EventRepository;
 use Doctrine\ORM\Mapping as ORM;
+use \DateTime;
 
 /**
  * @ORM\Entity(repositoryClass=EventRepository::class)
@@ -43,9 +44,19 @@ class Event
     private $location;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity=Poster::class, inversedBy="events")
      */
     private $poster;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $date;
+
+    public function __construct()
+    {
+        $this->date = new DateTime();
+    }
 
     public function getId(): ?int
     {
@@ -72,18 +83,6 @@ class Event
     public function setDescription(string $description): self
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function getPoster(): ?string
-    {
-        return $this->poster;
-    }
-
-    public function setPoster(?string $poster): self
-    {
-        $this->poster = $poster;
 
         return $this;
     }
@@ -120,6 +119,30 @@ class Event
     public function setEndDate(?\DateTimeInterface $endDate): self
     {
         $this->endDate = $endDate;
+
+        return $this;
+    }
+
+    public function getPoster(): ?Poster
+    {
+        return $this->poster;
+    }
+
+    public function setPoster(?Poster $poster): self
+    {
+        $this->poster = $poster;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
 
         return $this;
     }
