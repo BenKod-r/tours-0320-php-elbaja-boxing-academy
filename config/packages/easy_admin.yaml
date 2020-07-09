@@ -11,6 +11,11 @@ easy_admin:
               class: App\Entity\Partner
         Poster:
               class: App\Entity\Poster
+              form:
+                fields:
+                  - 'fileName'
+                  - { property: 'slug', type: 'file' }
+
         User:
             class: App\Entity\User
             controller: App\Controller\UserAdminController
@@ -30,6 +35,7 @@ easy_admin:
          - { entity: 'User', label: 'Utilisateurs' }
          - { entity: 'Member', label: 'Membres' }
          - { entity: 'Partner', label: 'Partenaires' }
+         - { entity: 'Poster', label: 'Photos' }
 
     site_name: 'Administration du site ELBAJA BOXING ACADEMY'
 
