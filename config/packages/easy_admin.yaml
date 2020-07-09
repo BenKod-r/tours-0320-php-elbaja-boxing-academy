@@ -9,6 +9,8 @@ easy_admin:
             class: App\Entity\Project
         Partner:
               class: App\Entity\Partner
+        Poster:
+              class: App\Entity\Poster
         User:
             class: App\Entity\User
             controller: App\Controller\UserAdminController
