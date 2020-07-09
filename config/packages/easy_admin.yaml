@@ -1,21 +1,6 @@
 # config/packages/easy_admin.yaml
 easy_admin:
     entities:
-        Event :
-            class: App\Entity\Event
-        Member:
-            class: App\Entity\Member
-        Project:
-            class: App\Entity\Project
-        Partner:
-              class: App\Entity\Partner
-        Poster:
-              class: App\Entity\Poster
-              form:
-                fields:
-                  - 'fileName'
-                  - { property: 'slug', type: 'file' }
-
         User:
             class: App\Entity\User
             controller: App\Controller\UserAdminController
@@ -30,12 +15,7 @@ easy_admin:
        menu:
          - { label: "Revenir à l'accueil", route: 'home_index' }
          - { label: "" }
-         - { entity: 'Event', label: 'Evenements' }
-         - { entity: 'Project', label: 'Projets' }
          - { entity: 'User', label: 'Utilisateurs' }
-         - { entity: 'Member', label: 'Membres' }
-         - { entity: 'Partner', label: 'Partenaires' }
-         - { entity: 'Poster', label: 'Photos' }
 
     site_name: 'Administration du site ELBAJA BOXING ACADEMY'
 
