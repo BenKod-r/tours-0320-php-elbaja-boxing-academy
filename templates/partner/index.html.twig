@@ -21,6 +21,9 @@
                     {% if partner.poster is not empty %}
                         <a class="partner_link_image">
                             <img class="partner_image card-img-top" src="{{ asset ('/images/' ~ partner.poster.slug) }}" alt="Card image cap"  title="Cliquer sur l'image pour en savoir plus !" />
+                                {% if app.user %}
+                                    {{ include('partner/_delete.html.twig') }}
+                                {% endif %}
                         </a>
                     {% endif %}
                     </div>
