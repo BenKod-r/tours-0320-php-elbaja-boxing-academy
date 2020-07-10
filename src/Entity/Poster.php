@@ -6,6 +6,7 @@ use App\Repository\PosterRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use \DateTime;
 
 /**
  * @ORM\Entity(repositoryClass=PosterRepository::class)
@@ -44,11 +45,17 @@ class Poster
      */
     private $projects;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $date;
+
     public function __construct()
     {
         $this->events = new ArrayCollection();
         $this->partners = new ArrayCollection();
         $this->projects = new ArrayCollection();
+        $this->date = new DateTime();
     }
 
     public function getId(): ?int
@@ -169,6 +176,18 @@ class Poster
                 $project->setPoster(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
 
         return $this;
     }
