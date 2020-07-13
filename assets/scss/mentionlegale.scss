@@ -1,32 +1,32 @@
-.mentionlegal{
+.mentionlegal {
     font-family: "Graduate";
     background-image: url("../images/backgroundEBA.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
+    padding-bottom: 20px;
 }
 
-.mention_title{
+.mention_title {
     background-color: black;
-    text-justify: auto;
 }
 
-.mentionlegal h2{
-    font-size: 5rem;
+.mentionlegal h2 {
     text-align: center;
     align-content: center;
     color: red;
-    text-justify: auto;
     padding-top: 50px;
 }
 
-.mentionlegal p{
+.mentionlegal p {
     color: white;
-    text-justify: auto;
 }
 
-.mentionlegal h3{
+.mentionlegal h3 {
     color: red;
-    text-justify: auto;
+}
+
+.mentionlegal_content {
+    margin: 20px;
 }
