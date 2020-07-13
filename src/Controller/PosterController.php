@@ -65,7 +65,7 @@ class PosterController extends AbstractController
                 return $this->redirectToRoute('poster_new');
             } catch (PartialFileException | NoFileException | CannotWriteFileException $e) {
                 $this->addFlash('warning', 'Fichier non enregistré, veuillez réessayer.
-                    Si le problème persiste, veuillez contacter un professionnel du web');
+                    Si le problème persiste, veuillez contacter l\'administrateur du site');
                 return $this->redirectToRoute('poster_new');
             }
             $poster->setSlug($posterSlug);
