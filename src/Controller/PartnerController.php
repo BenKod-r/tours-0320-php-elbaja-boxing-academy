@@ -19,6 +19,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 class PartnerController extends AbstractController
 {
     /**
+     * Returns all partners
      * @Route("/", name="partner_index", methods={"GET"})
      */
     public function index(PartnerRepository $partnerRepository): Response
@@ -29,6 +30,7 @@ class PartnerController extends AbstractController
     }
 
     /**
+     * Returns a form to create an partner and redirection to choose a poster
      * @Route("/new", name="partner_new", methods={"GET","POST"})
      * @IsGranted("ROLE_ADMIN")
      */
@@ -92,6 +94,7 @@ class PartnerController extends AbstractController
 
 
     /**
+     * delete an partner
      * @Route("/{id}", name="partner_delete", methods={"DELETE"})
      * @IsGranted("ROLE_ADMIN")
      */
