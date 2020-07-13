@@ -1,5 +1,5 @@
 /* global animation, anime */
-const animation = anime.timeline({ loop: true })
+const animation = anime.timeline({ loop: 1 })
     .add({
         targets: '.ml15 .word',
         scale: [14, 1],
@@ -10,6 +10,12 @@ const animation = anime.timeline({ loop: true })
     }).add({
         targets: '.ml15',
         opacity: 0,
+        duration: 1000,
+        easing: 'easeOutExpo',
+        delay: 1000,
+    }).add({
+        targets: '.ml15',
+        opacity: 1,
         duration: 1000,
         easing: 'easeOutExpo',
         delay: 1000,
