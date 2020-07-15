@@ -1,4 +1,6 @@
-.partner {
+.partner,
+.partner_page_new,
+.partner_page_form {
     font-family: "Graduate";
     background-image: url("../images/backgroundEBA.jpg");
     background-repeat: no-repeat;
@@ -6,6 +8,13 @@
     background-position: center;
     background-size: cover;
     padding-bottom: 150px;
+}
+
+.partner_page_new_title{
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 30px;
+    color: $primary-color;
 }
 
 .partner_page {
@@ -19,6 +28,11 @@
     margin-top: 5px;
     color: $primary-color;
     text-align: center;
+}
+
+.partner_form{
+    color: $primary-color;
+
 }
 
 @media only screen and (min-width: 992px) {
@@ -68,10 +82,7 @@
 
     .partner_card_image:hover {
         position: relative;
-        padding-left: 60px;
-        padding-right: 60px;
         z-index: 1000;
-        transform: scale(1.5);
     }
 }
 
@@ -115,5 +126,22 @@
         visibility: visible;
         margin-right: 40px;
         border-radius: 5px;
+    }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1247px) {
+    .partner_page_new_title{
+        margin-top: 50px;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .partner_page_new_title{
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 992px) {
+    .partner_page_new_title{
+        margin-top: 0px
     }
 }
