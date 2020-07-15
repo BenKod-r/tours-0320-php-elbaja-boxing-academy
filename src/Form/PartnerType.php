@@ -17,10 +17,6 @@ class PartnerType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('decription', TextType::class)
-            ->add('poster', EntityType::class, [
-                'class' => Poster::class,
-                'choice_label' => 'slug',
-            ])
         ;
     }
 
