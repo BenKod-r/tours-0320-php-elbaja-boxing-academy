@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class SearchPoster extends AbstractController
 {
     /**
-     * Service, Search object associated with posters 
+     * Service, Search object associated with posters
      * and delete the associated object
      */
     public function removeAssociate(Poster $poster)
