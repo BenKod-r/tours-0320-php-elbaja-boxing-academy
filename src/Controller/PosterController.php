@@ -91,6 +91,7 @@ class PosterController extends AbstractController
         $events = $poster->getEvents();
         $partners = $poster->getPartners();
         $projects = $poster->getProjects();
+        $members = $poster->getMembers();
         if ($this->isCsrfTokenValid('delete'.$poster->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             if (!empty($events)) {
@@ -106,6 +107,11 @@ class PosterController extends AbstractController
             if (!empty($projects)) {
                 foreach ($projects as $project) {
                     $entityManager->remove($project);
+                }
+            }
+            if (!empty($members)) {
+                foreach ($members as $member) {
+                    $entityManager->remove($member);
                 }
             }
             unlink($this->getParameter('upload_directory') . '/' . $poster->getSlug());
