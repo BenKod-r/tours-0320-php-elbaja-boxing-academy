@@ -330,7 +330,7 @@
     -1px -1px 2px white;
 }
 
-.trainers-ctn .trainer1, .trainers-ctn .trainer2, .trainers-ctn .trainer3 {
+.trainers-ctn .trainer-all {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -338,18 +338,7 @@
     position: relative;
 }
 
-.trainers-ctn .trainer1 {
-    background-image: url(../images/coach/barbara.jpg);
-    margin: 0 auto 30px auto;
-}
-
-.trainers-ctn .trainer2 {
-    background-image: url(../images/coach/nedjid.jpg);
-    margin: 0 auto 30px auto;
-}
-
-.trainers-ctn .trainer3 {
-    background-image: url(../images/coach/rachid.jpg);
+.trainers-ctn .trainer-all {
     margin: 0 auto 30px auto;
 }
 
