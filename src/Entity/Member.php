@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\MemberRepository;
 use Doctrine\ORM\Mapping as ORM;
+use \DateTime;
 
 /**
  * @ORM\Entity(repositoryClass=MemberRepository::class)
@@ -38,10 +39,19 @@ class Member
     private $description;
 
     /**
+     * @ORM\ManyToOne(targetEntity=Poster::class, inversedBy="members")
+     */
+    private $poster;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private $date;
 
+    public function __construct()
+    {
+        $this->date = new DateTime();
+    }
 
     public function getId(): ?int
     {
@@ -104,6 +114,18 @@ class Member
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getPoster(): ?Poster
+    {
+        return $this->poster;
+    }
+
+    public function setPoster(?Poster $poster): self
+    {
+        $this->poster = $poster;
 
         return $this;
     }
