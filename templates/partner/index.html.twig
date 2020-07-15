@@ -19,12 +19,12 @@
                     </div>
                     <div class="partner_card_image">
                     {% if partner.poster is not empty %}
-                        <a class="partner_link_image">
-                            <img class="partner_image card-img-top" src="{{ asset ('/images/' ~ partner.poster.slug) }}" alt="Card image cap"  title="Cliquer sur l'image pour en savoir plus !" />
-                                {% if app.user %}
-                                    {{ include('partner/_delete.html.twig') }}
-                                {% endif %}
-                        </a>
+                        <a class="partner_link_image"><img class="partner_image card-img-top" src="{{ asset ('/images/' ~ partner.poster.slug) }}" alt="Card image cap"  title="Cliquer sur l'image pour en savoir plus !" /></a>
+                    {% else %}
+                        <a class="btn btn-success" href="{{ path('partner_poster_index', {'id': partner.id}) }}">Ajouter une image</a>
+                    {% endif %}
+                    {% if app.user %}
+                        {{ include('partner/_delete.html.twig') }}
                     {% endif %}
                     </div>
                 </div>
