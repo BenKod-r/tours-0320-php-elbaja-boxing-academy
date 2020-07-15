@@ -13,8 +13,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class SearchPoster extends AbstractController
 {
     /**
-     * Service Upload file (jpg, jpeg, png)
-     * Finds the last available unique name
+     * Service, Search object associated with posters 
+     * and delete the associated object
      */
     public function removeAssociate(Poster $poster)
     {
