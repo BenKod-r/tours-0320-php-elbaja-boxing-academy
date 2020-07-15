@@ -106,37 +106,22 @@
              <h1 class="trainers_h1">RENCONTREZ NOS ENTRAINEURS</h1>
              <h3 class="trainers_h3">A votre écoute, ils sauront vous faire progresser</h3>
 
-             <div class="row trainers-ctn">
+            <div class="row trainers-ctn">
+            {% for member in members %}
+                {% if member.poster is not empty %}
+                <div class="trainer trainer-all" style="background-image: url({{ asset ('/images/' ~ member.poster.slug) }});">
+                    <div class="overlay">
+                        <div class="trainer-details">
+                            <h3 class="trainers_details_h3">{{ member.firstname }} {{ member.lastname }}</h3>
+                            <span>{{ member.description }}</span>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
 
-                 <div class="trainer trainer1">
-                     <div class="overlay">
-                         <div class="trainer-details">
-                             <h3 class="trainers_details_h3">BARBARA RAJCA M.</h3>
-                             <span>REMISE EN FORME ET AEROBOXE</span>
-                         </div>
-                     </div>
-                 </div>
-
-                 <div class="trainer trainer2">
-                     <div class="overlay">
-                         <div class="trainer-details">
-                             <h3 class="trainers_details_h3">NEDJID ELBAJA</h3>
-                             <span>COORDINATEUR GENERAL ET COACH DE LA BOXE ANGLAISE </span>
-                         </div>
-                     </div>
-                 </div>
-
-                 <div class="trainer trainer3">
-                     <div class="overlay">
-                         <div class="trainer-details">
-                             <h3 class="trainers_details_h3">RACHID MOULAHCENE</h3>
-                             <span>BOXE EDUCATIVE 12/16 ANS</span>
-                         </div>
-                     </div>
-                 </div>
-
-             </div>
-         </div>
+            </div>
+        </div>
 </section>
 <!--End Trainers -->
 <!-- Join Us-->

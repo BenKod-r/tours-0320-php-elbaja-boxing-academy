@@ -8,7 +8,6 @@ namespace App\Service;
 
 use App\Service\Slugify;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 //src/Service/FileUploader.php
 class FileUploader

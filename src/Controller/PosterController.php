@@ -6,6 +6,7 @@
 
 namespace App\Controller;
 
+use App\Service\SearchPoster;
 use App\Entity\Poster;
 use App\Form\PosterType;
 use App\Repository\PosterRepository;
@@ -86,28 +87,11 @@ class PosterController extends AbstractController
      * @Route("/{id}", name="poster_delete", methods={"DELETE"})
      * @IsGranted("ROLE_ADMIN")
      */
-    public function delete(Request $request, Poster $poster): Response
+    public function delete(Request $request, Poster $poster, SearchPoster $remove): Response
     {
-        $events = $poster->getEvents();
-        $partners = $poster->getPartners();
-        $projects = $poster->getProjects();
         if ($this->isCsrfTokenValid('delete'.$poster->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
-            if (!empty($events)) {
-                foreach ($events as $event) {
-                    $entityManager->remove($event);
-                }
-            }
-            if (!empty($partners)) {
-                foreach ($partners as $partner) {
-                    $entityManager->remove($partner);
-                }
-            }
-            if (!empty($projects)) {
-                foreach ($projects as $project) {
-                    $entityManager->remove($project);
-                }
-            }
+            $remove->removeAssociate($poster);
             unlink($this->getParameter('upload_directory') . '/' . $poster->getSlug());
             $entityManager->remove($poster);
             $entityManager->flush();
