@@ -14,6 +14,7 @@
         </div>
         <div class="poster_div d-flex justify-content-center row">
         {% for poster in posters %}
+            {% if poster.members is empty or app.user %}
             <div class="poster_figure">
                 <figure class="d-flex flex-column col-xs-12 col-lg-6 col-xl-12">
                     <img src="{{ asset ('/images/' ~ poster.slug) }}" />
@@ -23,10 +24,10 @@
                     {% endif %}
                 </figure>
             </div>
+            {% endif %}
         {% else %}
-        </div>
             <p class="poster_p text-white" colspan="7">no records found</p>
         {% endfor %}
-        
+        </div>
     </section>
 {% endblock %}
