@@ -29,28 +29,28 @@
              <div class="row">
                  <div class="col-lg-3 col-sm-6">
                      <div class="cs-item">
-                         <span class="fa fa-bolt fa-3x faa-pulse animated fa-4x"></span>
+                         <span class="fa fa-bolt fa-3x"></span>
                          <h4>Boxe Anglaise</h4>
                          <h4>MMA</h4>
                      </div>
                  </div>
                  <div class="col-lg-3 col-sm-6">
                      <div class="cs-item">
-                         <span class="fa fa-sign-language fa-3x faa-pulse animated fa-4x"></span>
+                         <span class="fa fa-sign-language fa-3x"></span>
                          <h4>Kick Boxing</h4>
                          <h4>Cardio Boxing</h4>
                      </div>
                  </div>
                  <div class="col-lg-3 col-sm-6">
                      <div class="cs-item">
-                         <span class="fa fa-heartbeat fa-3x faa-pulse animated fa-4x"></span>
+                         <span class="fa fa-heartbeat fa-3x"></span>
                          <h4>Cardio Training</h4>
                          <h4>Coaching</h4>
                      </div>
                  </div>
                  <div class="col-lg-3 col-sm-6">
                      <div class="cs-item">
-                         <span class="fa fa-users fa-3x faa-pulse animated fa-4x"></span>
+                         <span class="fa fa-users fa-3x"></span>
                          <h4>Hommes / Femmes</h4>
                          <h4>Enfants</h4>
                      </div>
@@ -86,46 +86,45 @@
      </div>
 </section>
      <!-- President Section End -->
+     <!-- Prince of Ring part here -->
+     <section class="prince_member section_padding">
+         <div class="container">
+             <div class="row justify-content-center">
+                 <div class="col-lg-7">
+                     <div class="prince_member_text">
+                         <h2 class="prince_h2">Vivez l'évenement des Princes du Ring !</h2>
+                         <a target="_blank" href="https://www.youtube.com/results?search_query=les+princes+du+ring+tours" class="btn_1">Suivez-nous</a>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+     <!-- Prince of Ring end -->
      <!-- Trainers -->
 <section class="trainers-section" id="trainers">
          <div class="container">
              <h1 class="trainers_h1">RENCONTREZ NOS ENTRAINEURS</h1>
              <h3 class="trainers_h3">A votre écoute, ils sauront vous faire progresser</h3>
 
-             <div class="row trainers-ctn">
+            <div class="row trainers-ctn">
+            {% for member in members %}
+                {% if member.poster is not empty %}
+                <div class="trainer trainer-all" style="background-image: url({{ asset ('/images/' ~ member.poster.slug) }});">
+                    <div class="overlay">
+                        <div class="trainer-details">
+                            <h3 class="trainers_details_h3">{{ member.firstname }} {{ member.lastname }}</h3>
+                            <span>{{ member.description }}</span>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
 
-                 <div class="trainer trainer1">
-                     <div class="overlay">
-                         <div class="trainer-details">
-                             <h3 class="trainers_details_h3">BARBARA RAJCA M.</h3>
-                             <span>REMISE EN FORME ET AEROBOXE</span>
-                         </div>
-                     </div>
-                 </div>
-
-                 <div class="trainer trainer2">
-                     <div class="overlay">
-                         <div class="trainer-details">
-                             <h3 class="trainers_details_h3">NEDJID ELBAJA</h3>
-                             <span>COORDINATEUR GENERAL ET COACH DE LA BOXE ANGLAISE </span>
-                         </div>
-                     </div>
-                 </div>
-
-                 <div class="trainer trainer3">
-                     <div class="overlay">
-                         <div class="trainer-details">
-                             <h3 class="trainers_details_h3">RACHID MOULAHCENE</h3>
-                             <span>BOXE EDUCATIVE 12/16 ANS</span>
-                         </div>
-                     </div>
-                 </div>
-
-             </div>
-         </div>
+            </div>
+        </div>
 </section>
 <!--End Trainers -->
-     <!-- Join Us-->
+<!-- Join Us-->
      <div class="cta">
          <div class="container">
              <div class="row">

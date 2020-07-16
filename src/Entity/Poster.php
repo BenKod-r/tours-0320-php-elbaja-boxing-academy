@@ -46,6 +46,11 @@ class Poster
     private $projects;
 
     /**
+     * @ORM\OneToMany(targetEntity=Member::class, mappedBy="poster")
+     */
+    private $members;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private $date;
@@ -56,6 +61,7 @@ class Poster
         $this->partners = new ArrayCollection();
         $this->projects = new ArrayCollection();
         $this->date = new DateTime();
+        $this->members = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -188,6 +194,37 @@ class Poster
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Member[]
+     */
+    public function getMembers(): Collection
+    {
+        return $this->members;
+    }
+
+    public function addMember(Member $member): self
+    {
+        if (!$this->members->contains($member)) {
+            $this->members[] = $member;
+            $member->setPoster($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMember(Member $member): self
+    {
+        if ($this->members->contains($member)) {
+            $this->members->removeElement($member);
+            // set the owning side to null (unless already changed)
+            if ($member->getPoster() === $this) {
+                $member->setPoster(null);
+            }
+        }
 
         return $this;
     }

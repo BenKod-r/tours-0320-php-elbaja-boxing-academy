@@ -24,11 +24,6 @@ class Partner
     private $name;
 
     /**
-     * @ORM\Column(type="text")
-     */
-    private $decription;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Poster::class, inversedBy="partners")
      */
     private $poster;
@@ -56,18 +51,6 @@ class Partner
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getDecription(): ?string
-    {
-        return $this->decription;
-    }
-
-    public function setDecription(string $decription): self
-    {
-        $this->decription = $decription;
 
         return $this;
     }

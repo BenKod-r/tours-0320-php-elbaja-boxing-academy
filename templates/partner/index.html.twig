@@ -5,6 +5,11 @@
 {% block body %}
     <section class="partner">
         <h1 class="partner_page">PARTENAIRES</h1>
+        <div class="event_link">
+            {% if app.user %}
+                <a class="partner_btn btn btn-success" href="{{ path('partner_new') }}">Créer un partenaire</a>
+            {% endif %}
+        </div>
         <div class="partner_card row justify-content-around">
         {% for partner in partners %}
             <div class="partner_deck d-flex card-deck col-xs-12 col-md-6 col-xl-4">
@@ -14,9 +19,12 @@
                     </div>
                     <div class="partner_card_image">
                     {% if partner.poster is not empty %}
-                        <a class="partner_link_image">
-                            <img class="partner_image card-img-top" src="{{ asset ('/images/' ~ partner.poster.slug) }}" alt="Card image cap"  title="Cliquer sur l'image pour en savoir plus !" />
-                        </a>
+                        <a class="partner_link_image"><img class="partner_image card-img-top" src="{{ asset ('/images/' ~ partner.poster.slug) }}" alt="Card image cap"  title="Cliquer sur l'image pour en savoir plus !" /></a>
+                    {% else %}
+                        <a class="btn btn-success" href="{{ path('partner_poster_index', {'id': partner.id}) }}">Ajouter une image</a>
+                    {% endif %}
+                    {% if app.user %}
+                        {{ include('partner/_delete.html.twig') }}
                     {% endif %}
                     </div>
                 </div>
