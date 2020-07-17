@@ -16,7 +16,7 @@ class SearchPoster extends AbstractController
      * Service, Search object associated with posters
      * and delete the associated object
      */
-    public function removeAssociate(Poster $poster)
+    public function removeAssociate(Poster $poster) :void
     {
         $events = $poster->getEvents();
         $partners = $poster->getPartners();
