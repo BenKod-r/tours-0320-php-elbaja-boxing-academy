@@ -9,6 +9,7 @@ use App\Form\ProjectType;
 use App\Service\FileUploader;
 use App\Form\PosterType;
 use App\Repository\ProjectRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -43,14 +44,13 @@ class ProjectController extends AbstractController
      * @Route("/new", name="project_new", methods={"GET","POST"})
      * @IsGranted("ROLE_ADMIN")
      */
-    public function new(Request $request): Response
+    public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $project = new Project();
         $form = $this->createForm(ProjectType::class, $project);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($project);
             $entityManager->flush();
 
@@ -68,8 +68,13 @@ class ProjectController extends AbstractController
      * @Route("/new/{project}/addposter", name="project_add_poster", methods={"GET","POST"})
      * @IsGranted("ROLE_ADMIN")
      */
-    public function newWithPoster(Request $request, FileUploader $fileUploader, Project $project): Response
-    {
+    public function newWithPoster(
+        Request $request,
+        FileUploader $fileUploader,
+        Project $project,
+        EntityManagerInterface $entityManager
+    ): Response {
+
         $poster = new Poster();
         $form = $this->createForm(PosterType::class, $poster);
         $form->handleRequest($request);
@@ -81,18 +86,17 @@ class ProjectController extends AbstractController
                 $posterSlug = $fileUploader->upload($posterFile, $poster->getFileName());
             } catch (IniSizeFileException | FormSizeFileException $e) {
                 $this->addFlash('warning', 'Votre fichier est trop lourd, il ne doit pas dépasser 1Mo.');
-                return $this->redirectToRoute('project_add_poster');
+                return $this->redirectToRoute('project_add_poster', ['project' => $project->getId()]);
             } catch (ExtensionFileException $e) {
                 $this->addFlash('warning', 'Le format de votre fichier n\'est pas supporté.
                     Votre fichier doit être au format jpeg, jpg ou png.');
-                return $this->redirectToRoute('project_add_poster');
+                return $this->redirectToRoute('project_add_poster', ['project' => $project->getId()]);
             } catch (PartialFileException | NoFileException | CannotWriteFileException $e) {
                 $this->addFlash('warning', 'Fichier non enregistré, veuillez réessayer.
                     Si le problème persiste, veuillez contacter l\'administrateur du site');
-                return $this->redirectToRoute('project_add_poster');
+                return $this->redirectToRoute('project_add_poster', ['project' => $project->getId()]);
             }
             $poster->setSlug($posterSlug);
-            $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($poster);
             $project->setPoster($poster);
             $entityManager->flush();
@@ -123,10 +127,9 @@ class ProjectController extends AbstractController
      * @Route("/new/{project}/poster/{poster}", name="project_new_poster", methods={"GET","POST"})
      * @IsGranted("ROLE_ADMIN")
      */
-    public function addPoster(Project $project, Poster $poster): Response
+    public function addPoster(Project $project, Poster $poster, EntityManagerInterface $entityManager): Response
     {
         $project->setPoster($poster);
-        $entityManager = $this->getDoctrine()->getManager();
         $entityManager->flush();
         
         return $this->redirectToRoute('project_index');
@@ -148,13 +151,13 @@ class ProjectController extends AbstractController
      * @Route("/{id}/edit", name="project_edit", methods={"GET","POST"},requirements={"id": "\d+"})
      * @IsGranted("ROLE_ADMIN")
      */
-    public function edit(Request $request, Project $project): Response
+    public function edit(Request $request, Project $project, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(ProjectType::class, $project);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $entityManager->flush();
 
             return $this->redirectToRoute('project_index');
         }
@@ -170,10 +173,9 @@ class ProjectController extends AbstractController
      * @Route("/{id}", name="project_delete", methods={"DELETE"})
      * @IsGranted("ROLE_ADMIN")
      */
-    public function delete(Request $request, Project $project): Response
+    public function delete(Request $request, Project $project, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$project->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($project);
             $entityManager->flush();
         }

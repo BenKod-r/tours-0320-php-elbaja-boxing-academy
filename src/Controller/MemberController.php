@@ -13,6 +13,7 @@ use App\Repository\PosterRepository;
 use App\Service\FileUploader;
 use App\Form\MemberType;
 use App\Form\PosterType;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -48,14 +49,13 @@ class MemberController extends AbstractController
      * @Route("/new", name="member_new", methods={"GET","POST"})
      * @IsGranted("ROLE_ADMIN")
      */
-    public function new(Request $request): Response
+    public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $member = new Member();
         $form = $this->createForm(MemberType::class, $member);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($member);
             $entityManager->flush();
 
@@ -73,8 +73,13 @@ class MemberController extends AbstractController
      * @Route("/new/{member}/addposter", name="member_add_poster", methods={"GET","POST"})
      * @IsGranted("ROLE_ADMIN")
      */
-    public function newWithPoster(Request $request, FileUploader $fileUploader, Member $member): Response
-    {
+    public function newWithPoster(
+        Request $request,
+        FileUploader $fileUploader,
+        Member $member,
+        EntityManagerInterface $entityManager
+    ): Response {
+
         $poster = new Poster();
         $form = $this->createForm(PosterType::class, $poster);
         $form->handleRequest($request);
@@ -86,18 +91,17 @@ class MemberController extends AbstractController
                 $posterSlug = $fileUploader->upload($posterFile, $poster->getFileName());
             } catch (IniSizeFileException | FormSizeFileException $e) {
                 $this->addFlash('warning', 'Votre fichier est trop lourd, il ne doit pas dépasser 1Mo.');
-                return $this->redirectToRoute('member_add_poster');
+                return $this->redirectToRoute('member_add_poster', ['member' => $member->getId()]);
             } catch (ExtensionFileException $e) {
                 $this->addFlash('warning', 'Le format de votre fichier n\'est pas supporté.
                     Votre fichier doit être au format jpeg, jpg ou png.');
-                return $this->redirectToRoute('member_add_poster');
+                return $this->redirectToRoute('member_add_poster', ['member' => $member->getId()]);
             } catch (PartialFileException | NoFileException | CannotWriteFileException $e) {
                 $this->addFlash('warning', 'Fichier non enregistré, veuillez réessayer.
                     Si le problème persiste, veuillez contacter l\'administrateur du site');
-                return $this->redirectToRoute('member_add_poster');
+                return $this->redirectToRoute('member_add_poster', ['member' => $member->getId()]);
             }
             $poster->setSlug($posterSlug);
-            $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($poster);
             $member->setPoster($poster);
             $entityManager->flush();
@@ -128,10 +132,9 @@ class MemberController extends AbstractController
      * @Route("/new/{member}/poster/{poster}", name="member_new_poster", methods={"GET","POST"})
      * @IsGranted("ROLE_ADMIN")
      */
-    public function addPoster(Member $member, Poster $poster): Response
+    public function addPoster(Member $member, Poster $poster, EntityManagerInterface $entityManager): Response
     {
         $member->setPoster($poster);
-        $entityManager = $this->getDoctrine()->getManager();
         $entityManager->flush();
         
         return $this->redirectToRoute('member_index');
@@ -142,13 +145,13 @@ class MemberController extends AbstractController
      * @Route("/{id}/edit", name="member_edit", methods={"GET","POST"},requirements={"id": "\d+"})
      * @IsGranted("ROLE_ADMIN")
      */
-    public function edit(Request $request, Member $member): Response
+    public function edit(Request $request, Member $member, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(MemberType::class, $member);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $entityManager->flush();
 
             return $this->redirectToRoute('member_index');
         }
@@ -164,10 +167,9 @@ class MemberController extends AbstractController
      * @Route("/{id}", name="member_delete", methods={"DELETE"})
      * @IsGranted("ROLE_ADMIN")
      */
-    public function delete(Request $request, Member $member): Response
+    public function delete(Request $request, Member $member, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$member->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($member);
             $entityManager->flush();
         }
