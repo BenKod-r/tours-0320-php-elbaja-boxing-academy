@@ -9,6 +9,7 @@
     background-size: cover;
     padding-bottom: 50px;
     overflow: hidden;
+    min-height: 1000px;
 }
 
 .member_title {
@@ -20,6 +21,10 @@
 
 .member_title h1 {
     padding-top: 50px;
+}
+
+.member_figure h2 {
+    font-size: 25px;
 }
 
 .member_link {

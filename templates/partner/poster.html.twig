@@ -9,7 +9,7 @@
         </div>
         <div class="poster_link">
         {% if app.user %}
-            <a class="poster_btn btn btn-success" href="{{ path('poster_new') }}">Ajouter une image</a>
+            <a class="poster_btn btn btn-success" href="{{ path('partner_add_poster', {'partner' : partner.id}) }}">Ajouter une image</a>
         {% endif %}
         </div>
         <div class="poster_div d-flex justify-content-center row">
