@@ -85,15 +85,15 @@ class EventController extends AbstractController
                 $posterSlug = $fileUploader->upload($posterFile, $poster->getFileName());
             } catch (IniSizeFileException | FormSizeFileException $e) {
                 $this->addFlash('warning', 'Votre fichier est trop lourd, il ne doit pas dépasser 1Mo.');
-                return $this->redirectToRoute('member_add_poster');
+                return $this->redirectToRoute('event_add_poster');
             } catch (ExtensionFileException $e) {
                 $this->addFlash('warning', 'Le format de votre fichier n\'est pas supporté.
                     Votre fichier doit être au format jpeg, jpg ou png.');
-                return $this->redirectToRoute('member_add_poster');
+                return $this->redirectToRoute('event_add_poster');
             } catch (PartialFileException | NoFileException | CannotWriteFileException $e) {
                 $this->addFlash('warning', 'Fichier non enregistré, veuillez réessayer.
                     Si le problème persiste, veuillez contacter l\'administrateur du site');
-                return $this->redirectToRoute('member_add_poster');
+                return $this->redirectToRoute('event_add_poster');
             }
             $poster->setSlug($posterSlug);
             $entityManager = $this->getDoctrine()->getManager();
