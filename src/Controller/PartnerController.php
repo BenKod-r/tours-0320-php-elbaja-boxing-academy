@@ -9,6 +9,7 @@ use App\Service\FileUploader;
 use App\Form\PosterType;
 use App\Repository\PartnerRepository;
 use App\Repository\PosterRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -43,14 +44,13 @@ class PartnerController extends AbstractController
      * @Route("/new", name="partner_new", methods={"GET","POST"})
      * @IsGranted("ROLE_ADMIN")
      */
-    public function new(Request $request): Response
+    public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $partner = new Partner();
         $form = $this->createForm(PartnerType::class, $partner);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($partner);
             $entityManager->flush();
 
@@ -68,8 +68,13 @@ class PartnerController extends AbstractController
      * @Route("/new/{partner}/addposter", name="partner_add_poster", methods={"GET","POST"})
      * @IsGranted("ROLE_ADMIN")
      */
-    public function newWithPoster(Request $request, FileUploader $fileUploader, Partner $partner): Response
-    {
+    public function newWithPoster(
+        Request $request,
+        FileUploader $fileUploader,
+        Partner $partner,
+        EntityManagerInterface $entityManager
+    ): Response {
+
         $poster = new Poster();
         $form = $this->createForm(PosterType::class, $poster);
         $form->handleRequest($request);
@@ -81,18 +86,17 @@ class PartnerController extends AbstractController
                 $posterSlug = $fileUploader->upload($posterFile, $poster->getFileName());
             } catch (IniSizeFileException | FormSizeFileException $e) {
                 $this->addFlash('warning', 'Votre fichier est trop lourd, il ne doit pas dépasser 1Mo.');
-                return $this->redirectToRoute('member_add_poster');
+                return $this->redirectToRoute('partner_add_poster', ['partner' => $partner->getId()]);
             } catch (ExtensionFileException $e) {
                 $this->addFlash('warning', 'Le format de votre fichier n\'est pas supporté.
                     Votre fichier doit être au format jpeg, jpg ou png.');
-                return $this->redirectToRoute('member_add_poster');
+                return $this->redirectToRoute('partner_add_poster', ['partner' => $partner->getId()]);
             } catch (PartialFileException | NoFileException | CannotWriteFileException $e) {
                 $this->addFlash('warning', 'Fichier non enregistré, veuillez réessayer.
                     Si le problème persiste, veuillez contacter l\'administrateur du site');
-                return $this->redirectToRoute('member_add_poster');
+                return $this->redirectToRoute('partner_add_poster', ['partner' => $partner->getId()]);
             }
             $poster->setSlug($posterSlug);
-            $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($poster);
             $partner->setPoster($poster);
             $entityManager->flush();
@@ -123,36 +127,22 @@ class PartnerController extends AbstractController
      * @Route("/new/{partner}/poster/{poster}", name="partner_new_poster", methods={"GET","POST"})
      * @IsGranted("ROLE_ADMIN")
      */
-    public function addPoster(Partner $partner, Poster $poster): Response
+    public function addPoster(Partner $partner, Poster $poster, EntityManagerInterface $entityManager): Response
     {
         $partner->setPoster($poster);
-        $entityManager = $this->getDoctrine()->getManager();
         $entityManager->flush();
         
         return $this->redirectToRoute('partner_index');
     }
 
     /**
-     * Return an partner
-     * @Route("/{id}", name="partner_show", methods={"GET"})
-     */
-    public function show(Partner $partner): Response
-    {
-        return $this->render('partner/show.html.twig', [
-            'partner' => $partner,
-        ]);
-    }
-
-
-    /**
      * delete an partner
      * @Route("/{id}", name="partner_delete", methods={"DELETE"})
      * @IsGranted("ROLE_ADMIN")
      */
-    public function delete(Request $request, Partner $partner): Response
+    public function delete(Request $request, Partner $partner, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$partner->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($partner);
             $entityManager->flush();
         }
