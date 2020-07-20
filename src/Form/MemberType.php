@@ -15,15 +15,16 @@ class MemberType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('firstname', TextType::class)
-            ->add('lastname', TextType::class)
+            ->add('firstname', TextType::class, ['label' =>' Prénom :'])
+            ->add('lastname', TextType::class, ['label' => 'Nom :'])
             ->add('category', ChoiceType::class, [
+                'label' => 'Categorie :',
                 'choices'  => [
                 'coach' => 'coach',
                 'heros' => 'hero',
                 ],
             ])
-            ->add('description', TextareaType::class)
+            ->add('description', TextareaType::class, ['label' => 'Description :'])
         ;
     }
 

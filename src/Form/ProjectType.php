@@ -16,12 +16,15 @@ class ProjectType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
+                'label' => 'Nom :',
                 'required'=> true
             ])
             ->add('description', TextareaType::class, [
+                'label' => 'Description :',
                 'required'=> true
             ])
             ->add('dateStart', DateType::class, [
+                 'label' => 'Date du Projet :',
                  'required'=> true,
                  'widget' => 'single_text'
             ])

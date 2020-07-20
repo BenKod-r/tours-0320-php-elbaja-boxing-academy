@@ -15,7 +15,7 @@ class PosterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('file_name', TextType::class)
+            ->add('file_name', TextType::class, ['label' => 'Nom du fichier :'])
             ->add('poster_img', FileType::class, [
                 'label' => 'Image (jpg/jpeg/png file)',
                 'mapped' => false,
