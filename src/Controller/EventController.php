@@ -9,6 +9,8 @@ namespace App\Controller;
 use App\Entity\Event;
 use App\Entity\Poster;
 use App\Repository\PosterRepository;
+use App\Service\FileUploader;
+use App\Form\PosterType;
 use App\Form\EventType;
 use App\Repository\EventRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,6 +18,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\Exception\CannotWriteFileException;
+use Symfony\Component\HttpFoundation\File\Exception\ExtensionFileException;
+use Symfony\Component\HttpFoundation\File\Exception\FormSizeFileException;
+use Symfony\Component\HttpFoundation\File\Exception\IniSizeFileException;
+use Symfony\Component\HttpFoundation\File\Exception\NoFileException;
+use Symfony\Component\HttpFoundation\File\Exception\PartialFileException;
 
 /**
  * @Route("/event")
@@ -54,6 +63,48 @@ class EventController extends AbstractController
 
         return $this->render('event/new.html.twig', [
             'event' => $event,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * Upload image to library, add unique name and add the image to the event
+     * @Route("/new/{event}/addposter", name="event_add_poster", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
+     */
+    public function newWithPoster(Request $request, FileUploader $fileUploader, Event $event): Response
+    {
+        $poster = new Poster();
+        $form = $this->createForm(PosterType::class, $poster);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            /** @var UploadedFile $posterFile */
+            $posterFile = $form->get('poster_img')->getData();
+            try {
+                $posterSlug = $fileUploader->upload($posterFile, $poster->getFileName());
+            } catch (IniSizeFileException | FormSizeFileException $e) {
+                $this->addFlash('warning', 'Votre fichier est trop lourd, il ne doit pas dépasser 1Mo.');
+                return $this->redirectToRoute('member_add_poster');
+            } catch (ExtensionFileException $e) {
+                $this->addFlash('warning', 'Le format de votre fichier n\'est pas supporté.
+                    Votre fichier doit être au format jpeg, jpg ou png.');
+                return $this->redirectToRoute('member_add_poster');
+            } catch (PartialFileException | NoFileException | CannotWriteFileException $e) {
+                $this->addFlash('warning', 'Fichier non enregistré, veuillez réessayer.
+                    Si le problème persiste, veuillez contacter l\'administrateur du site');
+                return $this->redirectToRoute('member_add_poster');
+            }
+            $poster->setSlug($posterSlug);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($poster);
+            $event->setPoster($poster);
+            $entityManager->flush();
+            return $this->redirectToRoute('event_index');
+        }
+
+        return $this->render('event/add_poster.html.twig', [
+            'poster' => $poster,
             'form' => $form->createView(),
         ]);
     }
