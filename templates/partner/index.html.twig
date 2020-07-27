@@ -7,7 +7,7 @@
         <h1 class="partner_page">PARTENAIRES</h1>
         <div class="event_link">
             {% if app.user %}
-                <a class="partner_btn btn btn-success" href="{{ path('partner_new') }}">Créer un partenaire</a>
+                <a class="partner_btn btn btn-success" href="{{ path('partner_new') }}">Ajouter un partenaire</a>
             {% endif %}
         </div>
         <div class="partner_card row justify-content-around">
@@ -19,7 +19,7 @@
                     </div>
                     <div class="partner_card_image">
                     {% if partner.poster is not empty %}
-                        <a class="partner_link_image"><img class="partner_image card-img-top" src="{{ asset ('/images/' ~ partner.poster.slug) }}" alt="Card image cap"  title="Cliquer sur l'image pour en savoir plus !" /></a>
+                        <a class="partner_link_image"><img class="partner_image card-img-top" src="{{ asset ('/images/' ~ partner.poster.slug) }}" alt="Card image cap"/></a>
                     {% else %}
                         <a class="btn btn-success" href="{{ path('partner_poster_index', {'id': partner.id}) }}">Ajouter une image</a>
                     {% endif %}
