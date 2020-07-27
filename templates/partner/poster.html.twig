@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}All Poster for partner{% endblock %}
+{% block title %}Images des partenaires{% endblock %}
 
 {% block body %}
     <section class="poster_index">
@@ -23,8 +23,8 @@
             </div>
         {% else %}
         </div>
-            <p class="poster_p text-white" colspan="7">no records found</p>
+            <p class="poster_p text-white" colspan="7">Pas d'enregistrement à afficher</p>
         {% endfor %}
-        
+
     </section>
 {% endblock %}
