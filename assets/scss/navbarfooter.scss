@@ -21,20 +21,13 @@ main {
     }
 }
 
-.dropdown {
-    &:hover {
-        > .dropdown-menu {
-            display: block;
-        }
-  }
-}
-
 .megamenu {
     position: static;
 
     .dropdown-menu {
         border: none;
         width: 100%;
+        
     }
 }
 
