@@ -7,9 +7,13 @@
         <div class="member_show_container container">
             <h1 class="member_page_new_title">Création d'un nouveau membre</h1>
 
-            {{ include('member/_form.html.twig') }}
-            
-            <a class="btn btn-light" href="{{ path('member_index') }}">Retour</a>
+            <div class="member_form">
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <button class="btn btn-success mb-5">{{ button_label|default('Ajouter une image') }}</button>
+                {{ form_end(form) }}
+            </div>
+            <a class="text-white" href="{{ path('member_index') }}">Retour</a>
         </div>
     </section>
 {% endblock %}

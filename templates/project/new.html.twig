@@ -8,8 +8,9 @@
         <div class="project_show_container container">
 
             {{ include('project/_form.html.twig') }}
-
-            <a class="btn btn-lg active" href="{{ path('project_index') }}">Retour</a>
+            <div class="mt-3">
+                <a class="text-white" href="{{ path('project_index') }}">Retour</a>
+            </div>
         </div>
     </section>
 {% endblock %}
