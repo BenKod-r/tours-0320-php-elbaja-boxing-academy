@@ -23,7 +23,7 @@ main {
 
 .megamenu {
     position: static;
-
+    
     .dropdown-menu {
         border: none;
         width: 100%;
@@ -114,12 +114,13 @@ main {
     margin-right: 20px;
 }
 
-.gt-text p {
+.gt-text p, .gt-text.email p, .gt-text.phone p {
     overflow: hidden;
     color: #ffffff;
     margin-bottom: 0;
-    padding-top: 10px;
+    padding-top: 20px;
     font-family:"Graduate";
+    font-size: 20px;
 }
 
 .gt-text ul {
@@ -150,10 +151,6 @@ main {
 
 .gt-text ul li:last-child:after {
     display: none;
-}
-
-.gt-text.email p {
-    padding-top: 20px;
 }
 
 /*---------------------
@@ -197,10 +194,6 @@ footer{
 .site-footer a
 {
     color:#737373;
-}
-
-.gt-text .footer-phone {
-    font-size:25px;
 }
 
 .site-footer a:hover
