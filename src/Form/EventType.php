@@ -16,7 +16,7 @@ class EventType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, ['label'=> 'Nom de l\'événement :'])
-            ->add('description', TextareaType::class)
+            ->add('description', TextareaType::class, ['label'=> 'Description :'])
             ->add('startDate', DateTimeType::class, [
                 'label' => 'Date et heure de l\'événement :',
                 'placeholder' => [
