@@ -1,11 +1,11 @@
 .mentionlegal {
     font-family: "Graduate";
-    background-image: url("../images/backgroundEBA.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
+    background-color:$secondary-color;
     padding-bottom: 20px;
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+    text-justify:center;
 }
 
 .mention_title {
@@ -15,7 +15,7 @@
 .mentionlegal h2 {
     text-align: center;
     align-content: center;
-    color: red;
+    color:#D9B44A;
     padding-top: 50px;
 }
 
@@ -24,9 +24,10 @@
 }
 
 .mentionlegal h3 {
-    color: red;
+    color:#D9B44A;
 }
 
 .mentionlegal_content {
     margin: 20px;
+    width : 80%;
 }

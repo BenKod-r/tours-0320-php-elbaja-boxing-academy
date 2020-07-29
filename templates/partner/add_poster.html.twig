@@ -7,9 +7,11 @@
         <div class="poster_show_container container">
             <h1 class="poster_page_new_title">Ajouter une image au partenaire</h1>
 
-            {{ include('poster/_form.html.twig') }}
-
-            <a class="btn btn-light" href="{{ path('home_index') }}">Revenir à l'accueil</a>
+            {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <button class="btn btn-success mb-5">{{ button_label|default('Ajouter une image') }}</button>
+                <a class="text-white ml-1 row" href="{{ path('home_index') }}">Revenir à l'accueil</a>
+            {{ form_end(form) }}
 
         </div>
     </section>

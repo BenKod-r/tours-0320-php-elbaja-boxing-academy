@@ -7,11 +7,16 @@
         <h1 class="event_page_edit_title">Modifier un évènement</h1>
         <div class="event_edit_container container">
             
-            {{ include('event/_form.html.twig', {'button_label': 'Modifier'}) }}
-            <a class="btn btn-light" href="{{ path('event_poster_index', { 'id' : event.id }) }}">Modifier l'image</a>
-            {{ include('event/_delete_form.html.twig') }}
-            
-            <a class="btn btn-light" href="{{ path('event_index') }}">Retour</a>
-        </div>
+            <div class="event_form">
+                {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    <button class="btn btn-success mr-3">{{ button_label|default('Sauvegarder') }}</button>
+                    <a class="btn btn-light btn btn-success mr-3 mt-2 mb-2 pr-4 pl-4" href="{{ path('event_poster_index', { 'id' : event.id }) }}">Modifier l'image</a>    
+                {{ form_end(form) }}
+                {{ include('event/_delete_form.html.twig') }}
+                <a class="text-white ml-1 mt-5 row" href="{{ path('event_index') }}">Retour</a>
+                
+            </div>
+
     </section>
 {% endblock %}

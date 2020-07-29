@@ -3,7 +3,7 @@
 .event_page_new,
 .event_page_edit {
     font-family: "Graduate";
-    background-image: url("../images/backgroundEBA.jpg");
+    background-image: url("../images/event/event_boxing.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -159,14 +159,14 @@
         visibility: visible;
         margin-left: 40px;
         border-radius: 5px;
-        
+
     }
 
     .event_card_image:hover .event_show {
         visibility: visible;
         margin-right: 40px;
         border-radius: 5px;
-        
+
     }
 }
 
@@ -183,7 +183,6 @@
 .event_delete,
 .event_form fieldset {
     font-size: 20px;
-    margin-left: 2%;
 }
 
 @media only screen and (min-width: 992px) {
@@ -251,7 +250,6 @@
 
 .event_show_body a {
     font-size: 20px;
-    margin-left: 2%;
 }
 
 @media only screen and (min-width: 992px) {

@@ -1,17 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}All Poster for event{% endblock %}
+{% block title %}All Poster for member{% endblock %}
 
 {% block body %}
     <section class="poster_index">
         <div class="poster_title">
             <h1>Images</h1>
-        
-            <div class="d-flex justify-content-end poster_link">
             {% if app.user %}
-                <a class="poster_btn btn btn-success" href="{{ path('member_add_poster', {'member' : member.id}) }}">Ajouter une image</a>
-            {% endif %}
+            <div class="d-flex justify-content-end mr-4">
+                <a class="btn btn-success poster_btn" href="{{ path('member_add_poster', {'member' : member.id}) }}">Ajouter une image</a>
             </div>
+            {% endif %}
         </div>
         <div class="poster_div d-flex justify-content-center row">
         {% for poster in posters %}
@@ -24,7 +23,7 @@
             </div>
         {% else %}
         </div>
-            <p class="poster_p text-white" colspan="7">no records found</p>
+            <p class="poster_p text-white" colspan="7">Aucune image trouvée</p>
         {% endfor %}
         
     </section>

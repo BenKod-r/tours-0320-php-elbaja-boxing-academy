@@ -412,16 +412,6 @@
     line-height: 1.2;
 }
 
-#cours{
-    animation: cours 1s infinite;
-}
-
-@keyframes cours{
-    0%{opacity: 1;}
-    50%{opacity: 0;}
-    100%{opacity: 1;}
-}
-
 .cta_content a
 {
     position: relative;

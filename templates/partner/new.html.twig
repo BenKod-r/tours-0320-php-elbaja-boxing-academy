@@ -1,15 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Partner{% endblock %}
+{% block title %}Nouveau partenaire{% endblock %}
 
 {% block body %}
     <section class="partner_page_new text-white">
         <div class="partner_show_container container">
-            <h1 class="partner_page_new_title">Création d'un nouvel partenaire</h1>
+            <h1 class="partner_page_new_title">Création d'un nouveau partenaire</h1>
 
             {{ include('partner/_form.html.twig') }}
-            
-            <a class="btn btn-light" href="{{ path('partner_index') }}">Retour</a>
+            <div class="mt-5">
+                <a class="text-white" href="{{ path('partner_index') }}">Retour</a>
+            </div>
         </div>
     </section>
 {% endblock %}

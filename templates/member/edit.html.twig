@@ -6,11 +6,16 @@
     <section class="member_page_edit text-white">
         <div class="member_edit_container container">
             <h1 class="member_page_edit_title">Modifier un évènement</h1>
-        
-            {{ include('member/_form.html.twig', {'button_label': 'Modifier'}) }}
-            <a class="btn btn-light" href="{{ path('member_poster_index', { 'id' : member.id }) }}">Modifier l'image</a>
-            
-            <a class="btn btn-light" href="{{ path('member_index') }}">Retour</a>
+            <div class="member_form">
+                {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    <button class="btn btn-success pl-5 pr-5 mr-3">{{ button_label|default('Modifier') }}</button>
+                    <a class="btn btn-light" href="{{ path('member_poster_index', { 'id' : member.id }) }}">Modifier l'image</a>
+                {{ form_end(form) }}
+            </div>
+            <div class="mt-5">
+                <a class="text-white" href="{{ path('member_index') }}">Retour</a>
+            </div>
         </div>
     </section>
 {% endblock %}
